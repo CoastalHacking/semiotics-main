@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/io.opensemantics.semiotics.model.feature_1.0.0.qualifier.jar" id="io.opensemantics.semiotics.model.feature" version="1.0.0.qualifier">
+      <category name="model"/>
+   </feature>
+   <feature url="features/io.opensemantics.semiotics.app.dependencies.feature_1.0.0.qualifier.jar" id="io.opensemantics.semiotics.app.dependencies.feature" version="1.0.0.qualifier">
+      <category name="dependencies"/>
+   </feature>
+   <category-def name="model" label="Semiotics Models"/>
+   <category-def name="dependencies" label="Semiotics Model Dependencies"/>
+</site>
