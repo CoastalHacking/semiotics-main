@@ -4,3 +4,4 @@ target/*
 !target/repository/
 !/target/repository/*
 !/target/repository/**/*
+/target/

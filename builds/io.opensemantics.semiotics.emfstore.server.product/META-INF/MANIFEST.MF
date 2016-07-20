@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Semiotics EMFStore Product
+Bundle-SymbolicName: io.opensemantics.semiotics.emfstore.server;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.11.1"
+Bundle-Vendor: Coastal Hacking

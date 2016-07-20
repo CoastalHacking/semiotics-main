@@ -35,6 +35,7 @@
     <module>../io.opensemantics.semiotics.app.dependencies.feature</module>
     <module>../io.opensemantics.semiotics.model.product</module>
     <module>../io.opensemantics.semiotics.model.site</module>
+    <module>../io.opensemantics.semiotics.emfstore.server.product</module>
   </modules>
 
   <build>

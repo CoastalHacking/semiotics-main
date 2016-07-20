@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+   <extension
+         id="server"
+         name="Semiotics EMFStore Server"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.emf.emfstore.server.application"
+            name="Semiotics EMFStore">
+         <property
+               name="appName"
+               value="Semiotics EMFStore">
+         </property>
+      </product>
+   </extension>
+</plugin>
