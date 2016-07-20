@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Semiotics EMFStore" uid="emfstore.product" id="io.opensemantics.semiotics.emfstore.server.server" application="org.eclipse.emf.emfstore.server.application" version="1.0.0" useFeatures="false" includeLaunchers="true">
-
+<product name="Semiotics EMFStore" uid="server" id="io.opensemantics.semiotics.emfstore.server.server" application="org.eclipse.emf.emfstore.server.application" version="1.0.0" useFeatures="false" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
@@ -14,7 +13,6 @@
 
    <windowImages/>
 
-
    <launcher>
       <solaris/>
       <win useIco="false">
@@ -22,10 +20,8 @@
       </win>
    </launcher>
 
-
    <vm>
    </vm>
-
 
    <plugins>
       <plugin id="io.opensemantics.semiotics.model.assessment"/>
