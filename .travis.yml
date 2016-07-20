@@ -1,4 +1,18 @@
 language: java
 jdk:
-  - oraclejdk8
-script: "mvn -f builds/io.opensemantics.semiotics.parent/pom.xml clean verify"
+- oraclejdk8
+script: mvn -f builds/io.opensemantics.semiotics.parent/pom.xml clean verify
+deploy:
+  provider: releases
+  api_key:
+    secure: YWzy7EE15DF4RkreeRRWBAuFe06JO0oP2vh3CLcH1e88glo0zMCmP4SZXq6zgTmhnETEfNyE+j070fr38fWevx8S0fEFxLAscxL3lKh1T9BCvNFdoMjQ5AUFo1AqyppIUY/y0cZAY7rfmd6NmEhUCahih6NaS3YmddC3MZe3XhljbYKrrBN13T4V3r7NTMmPggbzKQ/XFagerDp8KAHzAoUmgXjk8ItzNgBGB81YkXfg/ZDCOj1zaJG4YTudLW0uXizo+pxOgWPT3JTkmfTbtAigbG/HFNXAmI+XDSG+0rt4tDUp6F9coS2/jssZbCMHvOv4aMhNVi74dugOmIBuuvYJEFCeTkKVS3HwBSLgV5QECL62xO5Ai3bYI0GXmiWQq6Dxm5FAPzfaxATnJSE/8Ic8Gyql0VBnRS1yLiJ/5KqJUXPQyrxjDr8wEwbmzCcmgXDvzKk6oOiFj6jGvrAfMHe+UO+1D0wtUBrFSJCMM6iWLJc7J28OqfItrEVBVWb74oAiBXOYxdbFDuE9YAnuiy330F2q6cV3FAg2MG2rMSdctIqDsiz68tF9TdNP5GMLpTchZctBehqukDbqWO0YwAkKmRu0VDgVQlZc0W/uFM+4zBYoMpfh8PIkIv/AJIjsyRuDeDzvdLfX1rTE4OPPlIiq1CrtvtMsUxR40+ML8zk=
+  file:
+    - builds/io.opensemantics.semiotics.model.product/target/products/product-win32.win32.x86_64.zip
+    - builds/io.opensemantics.semiotics.model.product/target/products/product-linux.gtk.x86_64.zip
+    - builds/io.opensemantics.semiotics.model.product/target/products/product-macosx.cocoa.x86_64.zip
+    - builds/io.opensemantics.semiotics.emfstore.server.product/target/products/emfstore.product-win32.win32.x86_64.zip
+    - builds/io.opensemantics.semiotics.emfstore.server.product/target/products/emfstore.product-linux.gtk.x86_64.zip
+    - builds/io.opensemantics.semiotics.emfstore.server.product/target/products/emfstore.product-macosx.cocoa.x86_64.zip    
+  skip_cleanup: true
+  on:
+    tags: true
