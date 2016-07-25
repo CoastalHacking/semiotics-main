@@ -1,0 +1,2 @@
+requires.1.namespace = osgi.service
+requires.1.name = io.opensemantics.semiotics.extension.api.Workspace

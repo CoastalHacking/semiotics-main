@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_BxaXACerEeWxCPrV0pAZQQ">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="__wx3IFAzEeaskYr25Hh60w" featurename="menuContributions" parentElementId="org.eclipse.e4.legacy.ide.application">
+    <elements xsi:type="menu:MenuContribution" xmi:id="_xkZMwFA6EeaskYr25Hh60w" elementId="io.opensemantics.semiotics.extension.e4.menucontribution.0" positionInParent="after=additions" parentId="org.eclipse.ui.navigator.ProjectExplorer#PopupMenu">
+      <children xsi:type="menu:Menu" xmi:id="_Scc0oFBLEeaskYr25Hh60w" elementId="io.opensemantics.semiotics.extension.e4.menu.semiotics" label="Semiotics">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_6SOfkFA6EeaskYr25Hh60w" elementId="io.opensemantics.semiotics.extension.e4.handledmenuitem.project" label="Add to..." command="_ipoFUFA0EeaskYr25Hh60w"/>
+        <children xsi:type="menu:Menu" xmi:id="_ZVu6AFDiEeaskYr25Hh60w" elementId="io.opensemantics.semiotics.extension.e4.menu.addasassessmentto" label="Create ">
+          <children xsi:type="menu:DynamicMenuContribution" xmi:id="_38-iYFDdEeaskYr25Hh60w" elementId="io.opensemantics.semiotics.extension.e4.dynamicmenucontribution.0" label="Dyanmic assessment" contributionURI="bundleclass://io.opensemantics.semiotics.extension.e4/io.opensemantics.semiotics.extension.e4.handlers.DynamicMenuAssessmentHandler"/>
+        </children>
+      </children>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_h6ZAwFA0EeaskYr25Hh60w" featurename="commands" parentElementId="org.eclipse.e4.legacy.ide.application">
+    <elements xsi:type="commands:Command" xmi:id="_ipoFUFA0EeaskYr25Hh60w" elementId="io.opensemantics.semiotics.extension.e4.command.add.assessment" commandName="Add Assessment">
+      <parameters xmi:id="_tJCrYFGxEeaskYr25Hh60w" elementId="io.opensemantics.semiotics.extension.e4.param.add.assessment.project" name="Semiotics extension project name" typeId=""/>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_jCIE4FA0EeaskYr25Hh60w" featurename="handlers" parentElementId="org.eclipse.e4.legacy.ide.application">
+    <elements xsi:type="commands:Handler" xmi:id="_lMd1gFA0EeaskYr25Hh60w" elementId="io.opensemantics.semiotics.extension.e4.handler.add.assessment" contributionURI="bundleclass://io.opensemantics.semiotics.extension.e4/io.opensemantics.semiotics.extension.e4.handlers.AddAssessmentHandler" command="_ipoFUFA0EeaskYr25Hh60w"/>
+  </fragments>
+</fragment:ModelFragments>

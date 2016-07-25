@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Semiotics Extension for Eclipse 4
+Bundle-SymbolicName: io.opensemantics.semiotics.extension.e4;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: javax.inject,
+ org.eclipse.osgi,
+ org.eclipse.jface,
+ org.eclipse.e4.ui.services,
+ org.eclipse.e4.core.di.annotations,
+ org.eclipse.e4.ui.di,
+ org.eclipse.e4.ui.workbench,
+ org.eclipse.e4.ui.model.workbench,
+ org.eclipse.core.resources,
+ org.eclipse.core.runtime,
+ org.eclipse.e4.core.commands,
+ org.eclipse.e4.core.contexts,
+ org.eclipse.e4.core.di
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: io.opensemantics.semiotics.extension.api;version="[1.0.0,2.0.0)",
+ javax.annotation;version="1.2.0",
+ org.osgi.service.component.annotations;resolution:=optional
+Require-Capability: osgi.service;
+ filter:="(objectClass=io.opensemantics.semiotics.extension.api.Workspace)";effective:=active
+Bundle-ActivationPolicy: lazy
+Service-Component: OSGI-INF/io.opensemantics.semiotics.extension.e4.service.WorkspaceContextFactory.xml
