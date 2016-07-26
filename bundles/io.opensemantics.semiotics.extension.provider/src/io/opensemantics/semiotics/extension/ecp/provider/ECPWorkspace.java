@@ -15,13 +15,16 @@
  */
 package io.opensemantics.semiotics.extension.ecp.provider;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.eclipse.emf.ecp.core.ECPProject;
+import org.eclipse.emf.ecp.core.ECPProjectManager;
 import org.eclipse.emf.ecp.core.util.observer.ECPObserverBus;
 import org.eclipse.emf.ecp.core.util.observer.ECPProjectOpenClosedObserver;
+import org.eclipse.emf.ecp.core.util.observer.ECPProjectsChangedObserver;
 import org.osgi.framework.BundleContext;
 import org.osgi.service.component.ComponentContext;
 import org.osgi.service.component.annotations.Component;
@@ -34,19 +37,27 @@ import io.opensemantics.semiotics.extension.api.Workspace;
 @Component
 public class ECPWorkspace implements Workspace {
 
-  private final LinkedHashMap<String, Project> projectMap;
-  private ECPObserverBus observerBus;
+  private final ConcurrentHashMap<String, Project> projectMap;
   private OpenClosedObserver openCloseObserver;
+  private ProjectsChangedObserver projectsChangedObserver;
+
+  // OSGi services
+  private ECPObserverBus observerBus;
+  private ECPProjectManager projectManager;
   
   public ECPWorkspace() {
-    projectMap = new LinkedHashMap<>();
+    projectMap = new ConcurrentHashMap<>();
+    // call before observer
+    init();
     openCloseObserver = new OpenClosedObserver();
+    projectsChangedObserver = new ProjectsChangedObserver();
   }
 
   @Reference
   void bindObserver(ECPObserverBus observerBus) {
     this.observerBus = observerBus;
     this.observerBus.register(openCloseObserver);
+    this.observerBus.register(projectsChangedObserver);
   }
 
   void unbindObserver(ECPObserverBus observerBus) {
@@ -57,9 +68,18 @@ public class ECPWorkspace implements Workspace {
   void deactivate(ComponentContext cc,  BundleContext bc, Map<String,Object> config) {
     if (observerBus != null) {
       observerBus.unregister(openCloseObserver);
+      observerBus.unregister(projectsChangedObserver);
     }
   }
 
+  @Reference
+  void bindProjectManager(ECPProjectManager projectManager) {
+    this.projectManager = projectManager;
+  }
+
+  void unbindProjectManager(ECPProjectManager projectManager) {
+    this.projectManager = null;
+  }
   @Override
   public Collection<Project> getProjects() {
     return projectMap.values();
@@ -78,16 +98,43 @@ public class ECPWorkspace implements Workspace {
     projectMap.put(project.getName(), new ECPBackedProject(project.getName()));
   }
 
+  /*
+   * The listener misses all ECP project open and close events until
+   * the menu is accessed at least once.
+   */
+  private void init() {
+    if (projectManager != null) {
+      for (ECPProject project: projectManager.getProjects()) {
+        projectMap.put(project.getName(), new ECPBackedProject(project.getName()));
+      }
+    }
+  }
+  
   private class OpenClosedObserver implements ECPProjectOpenClosedObserver {
 
     @Override
-    public void projectChanged(org.eclipse.emf.ecp.core.ECPProject project, boolean opened) {
+    public void projectChanged(ECPProject project, boolean opened) {
       if (opened) {
         ECPWorkspace.this.addProject(project);
       } else {
         ECPWorkspace.this.removeProject(project);
       }
     }
-
   }
+
+  private class ProjectsChangedObserver implements ECPProjectsChangedObserver {
+
+    @Override
+    public void projectsChanged(Collection<ECPProject> oldProjects, Collection<ECPProject> newProjects) {
+      Collection<ECPProject> onlyOld = new ArrayList<>(oldProjects);
+      onlyOld.removeAll(newProjects);
+      for (ECPProject project: onlyOld) ECPWorkspace.this.removeProject(project);
+
+      Collection<ECPProject> onlyNew = new ArrayList<>(newProjects);
+      onlyNew.removeAll(oldProjects);
+      for (ECPProject project: onlyNew) ECPWorkspace.this.addProject(project);
+    }
+    
+  }
+  
 }

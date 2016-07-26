@@ -4,5 +4,6 @@
       <provide interface="io.opensemantics.semiotics.extension.api.Workspace"/>
    </service>
    <reference bind="bindObserver" cardinality="1..1" interface="org.eclipse.emf.ecp.core.util.observer.ECPObserverBus" name="Observer" policy="static" unbind="unbindObserver"/>
+   <reference bind="bindProjectManager" cardinality="1..1" interface="org.eclipse.emf.ecp.core.ECPProjectManager" name="ProjectManager" policy="static" unbind="unbindProjectManager"/>
    <implementation class="io.opensemantics.semiotics.extension.ecp.provider.ECPWorkspace"/>
 </scr:component>
