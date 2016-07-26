@@ -13,36 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.opensemantics.semiotics.extension.provider;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import org.osgi.service.component.annotations.Component;
+package io.opensemantics.semiotics.extension.ecp.provider;
 
 import io.opensemantics.semiotics.extension.api.Project;
-import io.opensemantics.semiotics.extension.api.Workspace;
 
-@Component
-public class EMFStoreWorkspace implements Workspace {
+public class ECPBackedProject implements Project {
 
-  private List<Project> projects;
-
-  public EMFStoreWorkspace() {
-    projects = new ArrayList<>();
-    projects.add(new EMFStoreProject("emf project a"));
-    projects.add(new EMFStoreProject("emf project b"));
-
+  private String ecpProjectName;
+  
+  public ECPBackedProject(String ecpProjectName) {
+    this.ecpProjectName = ecpProjectName;
   }
 
   @Override
-  public List<Project> getProjects() {
-    return projects;
-  }
-
-  @Override
-  public boolean hasProjects() {
-    return projects == null ? false : !projects.isEmpty();
+  public String getName() {
+    return ecpProjectName;
   }
 
 }

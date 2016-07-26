@@ -1,15 +1,30 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Semiotics Extension Provider
-Bundle-SymbolicName: io.opensemantics.semiotics.extension.provider
+Bundle-SymbolicName: io.opensemantics.semiotics.extension.ecp.provider
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: io.opensemantics.semiotics.extension.api;version="[1.0.0,2.0.0)",
- org.osgi.service.component.annotations;version="1.2.0";resolution:=optional
-Service-Component: OSGI-INF/io.opensemantics.semiotics.extension.provider.EMFStoreWorkspace.xml
+ io.opensemantics.semiotics.extension.api.event;version="[1.0.0,2.0.0)",
+ org.osgi.framework,
+ org.osgi.service.component,
+ org.osgi.service.component.annotations;version="1.2.0";resolution:=optional,
+ org.osgi.service.event,
+ org.osgi.service.log
+Service-Component: OSGI-INF/io.opensemantics.semiotics.extension.ecp.provider.ECPWorkspace.xml,
+ OSGI-INF/io.opensemantics.semiotics.extension.ecp.provider.event.ECPBackedPublish.xml,
+ OSGI-INF/io.opensemantics.semiotics.extension.ecp.provider.event.AddApplicationSubscriber.xml
 Bundle-ActivationPolicy: lazy
 X-Hack-Comment: Below Require-Capability only works in Equinox 1.2
 Require-Capability: osgi.extender;
- filter:="(&(osgi.extender=osgi.component)(version>=1.2)(!(version>=2.0)))"
-Provide-Capability: osgi.service;
- objectClass:List<String>="io.opensemantics.semiotics.extension.api.Workspace"
+ filter:="(&(osgi.extender=osgi.component)(version>=1.2)(!(version>=2.0)))",
+ osgi.service;filter:="(objectClass=org.osgi.service.event.EventAdmin)";effective:=active,
+ osgi.service;filter:="(objectClass=org.osgi.service.event.EventHandler)";effective:=active,
+ osgi.service;filter:="(objectClass=org.osgi.service.log.LogService)";effective:=active,
+ osgi.service;filter:="(objectClass=org.eclipse.emf.ecp.core.ECPProjectManager)";effective:=active,
+ osgi.service;filter:="(objectClass=org.eclipse.emf.ecp.core.util.observer.ECPObserverBus)";effective:=active
+Provide-Capability: osgi.service;objectClass:List<String>="io.opensemantics.semiotics.extension.api.Workspace,io.opensemantics.semiotics.extension.api.event.Publish"
+Require-Bundle: org.eclipse.core.resources,
+ io.opensemantics.semiotics.model.assessment;bundle-version="1.0.0",
+ org.eclipse.emf.ecp.core,
+ org.eclipse.core.runtime

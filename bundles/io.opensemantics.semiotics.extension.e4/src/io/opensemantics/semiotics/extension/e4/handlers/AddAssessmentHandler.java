@@ -28,10 +28,15 @@ import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.viewers.IStructuredSelection;
 
+import io.opensemantics.semiotics.extension.api.event.Publish;
+
 public class AddAssessmentHandler {
 
   @Inject
   ESelectionService selectionService;
+
+  @Inject
+  private Publish publish;
   
   @Execute
   public void execute(
@@ -47,9 +52,10 @@ public class AddAssessmentHandler {
       if (element instanceof IAdaptable) {
         final IProject iProject = (IProject)((IAdaptable)element).getAdapter(IProject.class);
         if (iProject != null) {
-          // System.out.println("Project: " + iProject.getName());
+          publish.asAssessment(projectName, iProject);
         }
       }
     }
   }
+
 }

@@ -15,11 +15,11 @@
  */
 package io.opensemantics.semiotics.extension.api;
 
-import java.util.List;
+import java.util.Collection;
 
 public interface Workspace {
 
-  List<Project> getProjects();
+  Collection<Project> getProjects();
   
   boolean hasProjects();
 }

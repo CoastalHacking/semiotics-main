@@ -56,10 +56,10 @@ public class DynamicMenuAssessmentHandler {
         menuItem.setLabel(project.getName());
         menuItem.setCommand(commands.get(0));
 
-        final MParameter parameter = modelServices.createModelElement(MParameter.class);
-        parameter.setName("io.opensemantics.semiotics.extension.e4.param.add.assessment.project");
-        parameter.setValue(project.getName());
-        menuItem.getParameters().add(parameter);
+        final MParameter projectName = modelServices.createModelElement(MParameter.class);
+        projectName.setName("io.opensemantics.semiotics.extension.e4.param.add.assessment.project");
+        projectName.setValue(project.getName());
+        menuItem.getParameters().add(projectName);
 
         items.add(menuItem);
       }

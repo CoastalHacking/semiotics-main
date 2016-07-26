@@ -4,3 +4,22 @@ requires.0.version = 1.2.0
 
 provides.1.namespace = osgi.service
 provides.1.name = io.opensemantics.semiotics.extension.api.Workspace
+
+provides.2.namespace = osgi.service
+provides.2.name = io.opensemantics.semiotics.extension.api.event.Publish
+
+requires.3.namespace = osgi.service
+requires.3.name = org.osgi.service.event.EventAdmin
+
+provides.4.namespace = osgi.service
+provides.4.name = org.osgi.service.event.EventHandler
+
+requires.5.namespace = osgi.service
+requires.5.name = org.eclipse.emf.ecp.core.ECPProjectManager
+
+requires.6.namespace = osgi.service
+requires.6.name = org.eclipse.emf.ecp.core.util.observer.ECPObserverBus
+
+requires.7.namespace = osgi.service
+requires.7.name = org.osgi.service.log.LogService
+requires.7.version = 1.3.0

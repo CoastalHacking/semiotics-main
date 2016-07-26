@@ -13,10 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.opensemantics.semiotics.extension.api;
+package io.opensemantics.semiotics.extension.ecp.provider.event;
 
-public interface Project {
-
-  String getName();
-
+public interface EMFStoreEventConstants {
+  
+  public static final String TOPIC_APPLICATION_ADD = "io/opensemantics/semiotics/extension/provider/emfstore/application/add";
+  
+  public static final String PROP_PROJECT_NAME = "projectName";
+  public static final String PROP_DATA = "data";
 }

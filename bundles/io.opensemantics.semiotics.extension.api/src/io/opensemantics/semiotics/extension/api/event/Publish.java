@@ -13,22 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.opensemantics.semiotics.extension.provider;
+package io.opensemantics.semiotics.extension.api.event;
 
-import io.opensemantics.semiotics.extension.api.Project;
+public interface Publish {
 
-// XXX fixme
-public class EMFStoreProject implements Project {
-
-  private String name;
-
-  public EMFStoreProject(String name) {
-    this.name = name;
-  }
-
-  @Override
-  public String getName() {
-    return name;
-  }
-
+  void asAssessment(String projectName, Object data);
 }

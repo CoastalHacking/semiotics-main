@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.pde.ui.RuntimeWorkbench">
 <setAttribute key="additional_plugins">
-<setEntry value="org.eclipse.equinox.console:1.1.100.v20141023-1406:default:true"/>
-<setEntry value="org.eclipse.equinox.ds:1.4.300.v20150423-1356:default:true"/>
+<setEntry value="org.eclipse.equinox.console:1.1.200.v20150929-1405:default:true"/>
+<setEntry value="org.eclipse.equinox.ds:1.4.400.v20160226-2036:default:true"/>
 <setEntry value="org.eclipse.equinox.util:1.0.500.v20130404-1337:default:true"/>
-<setEntry value="org.eclipse.osgi.services:3.5.0.v20150519-2006:default:true"/>
-<setEntry value="org.eclipse.osgi:3.10.102.v20160118-1700:default:true"/>
+<setEntry value="org.eclipse.osgi.services:3.5.100.v20160504-1419:default:true"/>
+<setEntry value="org.eclipse.osgi:3.11.0.v20160603-1336:default:true"/>
 </setAttribute>
 <booleanAttribute key="append.args" value="true"/>
 <booleanAttribute key="askclear" value="false"/>

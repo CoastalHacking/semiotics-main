@@ -15,12 +15,14 @@ Require-Bundle: javax.inject,
  org.eclipse.core.runtime,
  org.eclipse.e4.core.commands,
  org.eclipse.e4.core.contexts,
- org.eclipse.e4.core.di
+ org.eclipse.e4.core.di,
+ org.eclipse.e4.core.services,
+ org.eclipse.osgi.services
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: io.opensemantics.semiotics.extension.api;version="[1.0.0,2.0.0)",
+ io.opensemantics.semiotics.extension.api.event;version="1.0.0",
  javax.annotation;version="1.2.0",
  org.osgi.service.component.annotations;resolution:=optional
-Require-Capability: osgi.service;
- filter:="(objectClass=io.opensemantics.semiotics.extension.api.Workspace)";effective:=active
+Require-Capability: osgi.service;filter:="(objectClass=io.opensemantics.semiotics.extension.api.Workspace)";effective:=active,
+ osgi.service;filter:="(objectClass=io.opensemantics.semiotics.extension.api.event.Publish)";effective:=active
 Bundle-ActivationPolicy: lazy
-Service-Component: OSGI-INF/io.opensemantics.semiotics.extension.e4.service.WorkspaceContextFactory.xml
