@@ -10,5 +10,21 @@
             uri="fragment.e4xmi">
       </fragment>
    </extension>
+   <extension
+         point="org.eclipse.core.expressions.definitions">
+      <definition
+            id="io.opensemantics.semiotics.extension.e4.expression.projectshow">
+         <with variable="selection">
+            <iterate ifEmpty="false">
+               <adapt type="org.eclipse.core.resources.IProject">
+                  <test
+                        property="org.eclipse.core.resources.open"
+                        value="true">
+                  </test>
+               </adapt>
+            </iterate>
+         </with>
+      </definition>
+   </extension>
 
 </plugin>
