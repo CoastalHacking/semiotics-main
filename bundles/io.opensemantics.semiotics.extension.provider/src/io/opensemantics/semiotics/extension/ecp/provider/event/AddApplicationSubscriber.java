@@ -92,6 +92,7 @@ public class AddApplicationSubscriber implements EventHandler {
 
       if (assessment == null) {
           assessment = AssessmentFactory.eINSTANCE.createAssessment();
+          ecpProject.getContents().add(assessment);
       }
 
       // Create or get applications container

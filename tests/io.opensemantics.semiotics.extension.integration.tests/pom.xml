@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>io.opensemantics.semiotics.extension.integration.tests</artifactId>
+  <parent>
+    <groupId>io.opensemantics.semiotics</groupId>
+    <artifactId>io.opensemantics.semiotics.parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <relativePath>../../builds/io.opensemantics.semiotics.parent</relativePath>
+  </parent>
+  <packaging>eclipse-test-plugin</packaging>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+         <groupId>org.eclipse.tycho</groupId>
+         <artifactId>target-platform-configuration</artifactId>
+         <configuration>
+            <dependency-resolution>
+               <extraRequirements>
+                  <!-- https://wiki.eclipse.org/Tycho/Packaging_Types#eclipse-test-plugin -->
+                  <requirement>
+                     <type>eclipse-feature</type>
+                     <id>io.opensemantics.semiotics.app.dependencies.feature</id>
+                     <versionRange>[1.0.0,1.1.0)</versionRange>
+                  </requirement>
+                  <!-- not included in the app dependency feature -->
+                  <requirement>
+                     <type>eclipse-plugin</type>
+                     <id>org.eclipse.emf.ecp.changebroker.provider</id>
+                     <versionRange>[1.9.0,2.0.0)</versionRange>
+                  </requirement>
+               </extraRequirements>
+            </dependency-resolution>
+         </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

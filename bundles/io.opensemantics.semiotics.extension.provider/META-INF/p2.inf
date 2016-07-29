@@ -4,11 +4,9 @@ requires.0.version = 1.2.0
 
 provides.1.namespace = osgi.service
 provides.1.name = io.opensemantics.semiotics.extension.api.Workspace
-provides.1.version = 1.0.0
 
 provides.2.namespace = osgi.service
 provides.2.name = io.opensemantics.semiotics.extension.api.event.Publish
-provides.2.version = 1.0.0
 
 provides.3.namespace = osgi.service
 provides.3.name = org.osgi.service.event.EventHandler

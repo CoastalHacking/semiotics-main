@@ -21,13 +21,12 @@ Service-Component: OSGI-INF/io.opensemantics.semiotics.extension.ecp.provider.EC
 Bundle-ActivationPolicy: lazy
 X-Hack-Comment: Below Require-Capability only works in Equinox 1.2
 Require-Capability: osgi.extender;
-  filter:="(&(osgi.extender=osgi.component)(version>=1.2)(!(version>=2.0)))",
- osgi.service; filter:="(objectClass=org.osgi.service.event.EventAdmin)";effective:=active,
- osgi.service; filter:="(objectClass=org.osgi.service.event.EventHandler)";effective:=active,
- osgi.service; filter:="(objectClass=org.osgi.service.log.LogService)";effective:=active,
- osgi.service; filter:="(objectClass=org.eclipse.emf.ecp.core.ECPProjectManager)";effective:=active,
- osgi.service; filter:="(objectClass=org.eclipse.emf.ecp.core.util.observer.ECPObserverBus)";effective:=active
-Provide-Capability: osgi.service;objectClass:List<String>="io.opensemantics.semiotics.extension.api.Workspace,io.opensemantics.semiotics.extension.api.event.Publish"
+  filter:="(&(osgi.extender=osgi.component)(version>=1.2)(!(version>=2.0)))"
+Provide-Capability: osgi.service;objectClass:List<String>=
+ "io.opensemantics.semiotics.extension.api.Workspace,
+ io.opensemantics.semiotics.extension.api.event.Publish,
+ org.osgi.service.event.EventHandler"
 Require-Bundle: org.eclipse.core.resources,
  io.opensemantics.semiotics.model.assessment;bundle-version="1.0.0",
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ org.eclipse.osgi.services

@@ -40,6 +40,7 @@
     <module>../io.opensemantics.semiotics.model.site</module>
     <module>../io.opensemantics.semiotics.emfstore.server.product</module>
     <module>../io.opensemantics.semiotics.extension.feature</module>
+    <module>../../tests/io.opensemantics.semiotics.extension.integration.tests</module>
   </modules>
 
   <build>
