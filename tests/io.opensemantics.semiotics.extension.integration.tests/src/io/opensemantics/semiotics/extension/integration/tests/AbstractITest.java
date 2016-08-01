@@ -28,6 +28,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
+import org.osgi.framework.ServiceRegistration;
 import org.osgi.util.tracker.ServiceTracker;
 
 public abstract class AbstractITest {
@@ -35,7 +36,6 @@ public abstract class AbstractITest {
   protected static ECPProjectManager projectManager;
   protected static ECPProviderRegistry providerRegistry;
   protected static ECPProvider provider;
-
 
   @BeforeClass
   public static void beforeAbstractClass() {
@@ -63,19 +63,28 @@ public abstract class AbstractITest {
   }
   
   // http://blog.vogella.com/2016/07/04/osgi-component-testing/
+  // This leaks ServiceTrackers
   protected static <B, T> T getService(Class<B> bundleClass, Class<T> serviceClass) {
     Bundle bundle = FrameworkUtil.getBundle(bundleClass);
     if (bundle != null) {
-        ServiceTracker<T, T> st = new ServiceTracker<T, T>(
-            bundle.getBundleContext(), serviceClass, null);
-        st.open();
-        if (st != null) {
-            try {
-              return st.waitForService(1000);
-            } catch (InterruptedException e) {
-              e.printStackTrace();
-            }
+      ServiceTracker<T, T> st = new ServiceTracker<T, T>(
+          bundle.getBundleContext(), serviceClass, null);
+      st.open();
+      if (st != null) {
+        try {
+          return st.waitForService(1000);
+        } catch (InterruptedException e) {
+          e.printStackTrace();
         }
+      }
+    }
+    return null;
+  }
+
+  protected static <B, T> ServiceRegistration<T> setService(Class<B> bundleClass, Class<T> serviceClass, T service) {
+    Bundle bundle = FrameworkUtil.getBundle(bundleClass);
+    if (bundle != null) {
+      return bundle.getBundleContext().registerService(serviceClass, service, null);
     }
     return null;
   }

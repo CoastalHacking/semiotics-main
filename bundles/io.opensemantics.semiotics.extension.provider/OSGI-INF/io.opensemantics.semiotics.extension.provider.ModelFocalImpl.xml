@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="io.opensemantics.semiotics.extension.provider.ModelFocalImpl">
+   <service>
+      <provide interface="io.opensemantics.semiotics.extension.api.ModelFocal"/>
+   </service>
+   <reference bind="bindHandler" cardinality="0..n" interface="io.opensemantics.semiotics.extension.api.ModelFocalUpdateHandler" name="Handler" policy="dynamic" unbind="unbindHandler"/>
+   <implementation class="io.opensemantics.semiotics.extension.provider.ModelFocalImpl"/>
+</scr:component>

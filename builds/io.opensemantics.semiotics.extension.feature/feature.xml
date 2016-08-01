@@ -39,7 +39,7 @@
          unpack="false"/>
 
    <plugin
-         id="io.opensemantics.semiotics.extension.ecp.provider"
+         id="io.opensemantics.semiotics.extension.provider"
          download-size="0"
          install-size="0"
          version="0.0.0"

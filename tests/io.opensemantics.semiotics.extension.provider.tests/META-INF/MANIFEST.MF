@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Semiotics Extension Provider Tests
+Bundle-SymbolicName: io.opensemantics.semiotics.extension.provider.tests
+Bundle-Version: 1.0.0.qualifier
+Fragment-Host: io.opensemantics.semiotics.extension.provider;bundle-version="[1.0.0,1.1.0)"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.junit

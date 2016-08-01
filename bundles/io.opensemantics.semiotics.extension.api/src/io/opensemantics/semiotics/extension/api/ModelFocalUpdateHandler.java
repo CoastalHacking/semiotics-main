@@ -13,21 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.opensemantics.semiotics.extension.ecp.provider;
+package io.opensemantics.semiotics.extension.api;
 
-import io.opensemantics.semiotics.extension.api.Project;
+public interface ModelFocalUpdateHandler {
 
-public class ECPBackedProject implements Project {
-
-  private String ecpProjectName;
-  
-  public ECPBackedProject(String ecpProjectName) {
-    this.ecpProjectName = ecpProjectName;
-  }
-
-  @Override
-  public String getName() {
-    return ecpProjectName;
-  }
-
+  void onUpdate(Object model);
 }

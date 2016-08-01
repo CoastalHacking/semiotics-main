@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Semiotics Extension Provider
-Bundle-SymbolicName: io.opensemantics.semiotics.extension.ecp.provider
+Bundle-SymbolicName: io.opensemantics.semiotics.extension.provider
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: io.opensemantics.semiotics.extension.api;version="[1.0.0,2.0.0)",
@@ -15,9 +15,10 @@ Import-Package: io.opensemantics.semiotics.extension.api;version="[1.0.0,2.0.0)"
  org.osgi.service.component.annotations;version="[1.2.0,2.0.0)";resolution:=optional,
  org.osgi.service.event;version="[1.3.1,2.0.0)",
  org.osgi.service.log;version="[1.3.0,2.0.0)"
-Service-Component: OSGI-INF/io.opensemantics.semiotics.extension.ecp.provider.ECPWorkspace.xml,
- OSGI-INF/io.opensemantics.semiotics.extension.ecp.provider.event.ECPBackedPublish.xml,
- OSGI-INF/io.opensemantics.semiotics.extension.ecp.provider.event.AddApplicationSubscriber.xml
+Service-Component: OSGI-INF/io.opensemantics.semiotics.extension.provider.ecp.ECPWorkspace.xml,
+ OSGI-INF/io.opensemantics.semiotics.extension.provider.ecp.event.ECPBackedPublish.xml,
+ OSGI-INF/io.opensemantics.semiotics.extension.provider.ecp.event.AddApplicationSubscriber.xml,
+ OSGI-INF/io.opensemantics.semiotics.extension.provider.ModelFocalImpl.xml
 Bundle-ActivationPolicy: lazy
 X-Hack-Comment: Below Require-Capability only works in Equinox 1.2
 Require-Capability: osgi.extender;
@@ -25,6 +26,7 @@ Require-Capability: osgi.extender;
 Provide-Capability: osgi.service;objectClass:List<String>=
  "io.opensemantics.semiotics.extension.api.Workspace,
  io.opensemantics.semiotics.extension.api.event.Publish,
+ io.opensemantics.semiotics.extension.api.ModelFocal,
  org.osgi.service.event.EventHandler"
 Require-Bundle: org.eclipse.core.resources,
  io.opensemantics.semiotics.model.assessment;bundle-version="1.0.0",

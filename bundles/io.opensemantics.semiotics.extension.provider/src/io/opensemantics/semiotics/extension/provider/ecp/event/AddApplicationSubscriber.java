@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.opensemantics.semiotics.extension.ecp.provider.event;
+package io.opensemantics.semiotics.extension.provider.ecp.event;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.util.EList;

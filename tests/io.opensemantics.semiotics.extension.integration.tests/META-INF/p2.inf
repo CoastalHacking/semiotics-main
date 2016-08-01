@@ -7,3 +7,6 @@ requires.1.name = io.opensemantics.semiotics.extension.api.Workspace
 
 requires.2.namespace = osgi.service
 requires.2.name = io.opensemantics.semiotics.extension.api.event.Publish
+
+requires.3.namespace = osgi.service
+requires.3.name = io.opensemantics.semiotics.extension.api.ModelFocal
