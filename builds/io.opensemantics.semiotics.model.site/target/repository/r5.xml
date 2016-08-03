@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<repository increment="1469756690134" name="Semiotics Model" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
+<repository increment="1470234355788" name="Semiotics Model" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
   <resource>
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="com.ibm.icu"/>
@@ -255,28 +255,28 @@
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="io.opensemantics.semiotics.model.assessment.edit"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="1.0.0.201607290144"/>
+      <attribute name="version" type="Version" value="1.0.0.201608031424"/>
       <directive name="singleton" value="true"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="937e6b3e5916eee97e62bf7eb198103ce29b95e4f672bc85c924642c8c359c8b"/>
-      <attribute name="url" value="plugins/io.opensemantics.semiotics.model.assessment.edit_1.0.0.201607290144.jar"/>
-      <attribute name="size" type="Long" value="242041"/>
+      <attribute name="osgi.content" value="a96784f707c3a918a0c1f9c97eec8c41f263ef4d3bae4ef02b93ee20a58d5bcb"/>
+      <attribute name="url" value="plugins/io.opensemantics.semiotics.model.assessment.edit_1.0.0.201608031424.jar"/>
+      <attribute name="size" type="Long" value="242040"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="io.opensemantics.semiotics.model.assessment.edit"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201607290144"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="io.opensemantics.semiotics.model.assessment.edit"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201607290144"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="io.opensemantics.semiotics.model.assessment.provider"/>
       <attribute name="version" type="Version" value="0.0.0"/>
       <attribute name="bundle-symbolic-name" value="io.opensemantics.semiotics.model.assessment.edit"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201607290144"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
     </capability>
     <requirement namespace="osgi.wiring.bundle">
       <directive name="filter" value="(osgi.wiring.bundle=org.eclipse.core.runtime)"/>
@@ -300,22 +300,22 @@
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="io.opensemantics.semiotics.model.assessment.viewmodel"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="1.0.0.201607290144"/>
+      <attribute name="version" type="Version" value="1.0.0.201608031424"/>
       <directive name="singleton" value="true"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="7aaa8c90b066a7e5ee61ebbed8539083160d317a8d0a4e8dfa52027243c1fd80"/>
-      <attribute name="url" value="plugins/io.opensemantics.semiotics.model.assessment.viewmodel_1.0.0.201607290144.jar"/>
-      <attribute name="size" type="Long" value="25328"/>
+      <attribute name="osgi.content" value="a3ee36ef18f9f54a295d0fc6be76236ad9571cde13f1c6cafb3ba5632497679f"/>
+      <attribute name="url" value="plugins/io.opensemantics.semiotics.model.assessment.viewmodel_1.0.0.201608031424.jar"/>
+      <attribute name="size" type="Long" value="25326"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="io.opensemantics.semiotics.model.assessment.viewmodel"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201607290144"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="io.opensemantics.semiotics.model.assessment.viewmodel"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201607290144"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
     </capability>
     <requirement namespace="osgi.wiring.bundle">
       <directive name="filter" value="(osgi.wiring.bundle=org.eclipse.emf.ecp.view.model.provider.xmi)"/>
@@ -325,40 +325,40 @@
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="io.opensemantics.semiotics.model.assessment"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="1.0.0.201607290144"/>
+      <attribute name="version" type="Version" value="1.0.0.201608031424"/>
       <directive name="singleton" value="true"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="8cc60d248e972d43dcb50dfd6fcefb8b986eeb84a020b2005db1f6b5877086e4"/>
-      <attribute name="url" value="plugins/io.opensemantics.semiotics.model.assessment_1.0.0.201607290144.jar"/>
-      <attribute name="size" type="Long" value="140529"/>
+      <attribute name="osgi.content" value="0b4693d9ee78a9f8e8fd0fa512ad0d5fb48e8dedaac22b3c8e1d8f5fd765e78c"/>
+      <attribute name="url" value="plugins/io.opensemantics.semiotics.model.assessment_1.0.0.201608031424.jar"/>
+      <attribute name="size" type="Long" value="140528"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="io.opensemantics.semiotics.model.assessment"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201607290144"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="io.opensemantics.semiotics.model.assessment"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201607290144"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="io.opensemantics.semiotics.model.assessment"/>
       <attribute name="version" type="Version" value="0.0.0"/>
       <attribute name="bundle-symbolic-name" value="io.opensemantics.semiotics.model.assessment"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201607290144"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="io.opensemantics.semiotics.model.assessment.impl"/>
       <attribute name="version" type="Version" value="0.0.0"/>
       <attribute name="bundle-symbolic-name" value="io.opensemantics.semiotics.model.assessment"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201607290144"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="io.opensemantics.semiotics.model.assessment.util"/>
       <attribute name="version" type="Version" value="0.0.0"/>
       <attribute name="bundle-symbolic-name" value="io.opensemantics.semiotics.model.assessment"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201607290144"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
     </capability>
     <requirement namespace="osgi.wiring.bundle">
       <directive name="filter" value="(osgi.wiring.bundle=org.eclipse.core.runtime)"/>
@@ -375,28 +375,28 @@
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="io.opensemantics.semiotics.model"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="1.0.0.201607290144"/>
+      <attribute name="version" type="Version" value="1.0.0.201608031424"/>
       <directive name="singleton" value="true"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="6d9fc7e36214f9b99365997ff705c72830f1243f827819b7d42ddc3be20220e4"/>
-      <attribute name="url" value="plugins/io.opensemantics.semiotics.model_1.0.0.201607290144.jar"/>
-      <attribute name="size" type="Long" value="5807"/>
+      <attribute name="osgi.content" value="ede324f138a513f7e3de0c827c7a3c731f96ade63bebb75efbeb3cfb4fc96c0e"/>
+      <attribute name="url" value="plugins/io.opensemantics.semiotics.model_1.0.0.201608031424.jar"/>
+      <attribute name="size" type="Long" value="5805"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="io.opensemantics.semiotics.model"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201607290144"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="io.opensemantics.semiotics.model"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201607290144"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="io.opensemantics.semiotics.model.assessment.edit"/>
       <attribute name="version" type="Version" value="0.0.0"/>
       <attribute name="bundle-symbolic-name" value="io.opensemantics.semiotics.model"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201607290144"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
     </capability>
     <requirement namespace="osgi.wiring.package">
       <directive name="filter" value="(osgi.wiring.package=org.osgi.framework)"/>

@@ -41,6 +41,7 @@
     <module>../io.opensemantics.semiotics.emfstore.server.product</module>
     <module>../io.opensemantics.semiotics.extension.feature</module>
     <module>../../tests/io.opensemantics.semiotics.extension.integration.tests</module>
+    <module>../../tests/io.opensemantics.semiotics.extension.provider.tests</module>
   </modules>
 
   <build>
