@@ -33,7 +33,15 @@
 <setEntry value="io.opensemantics.semiotics.app.dependencies.feature:default"/>
 <setEntry value="io.opensemantics.semiotics.extension.feature:default"/>
 <setEntry value="io.opensemantics.semiotics.model.feature:default"/>
+<setEntry value="org.eclipse.e4.core.tools.feature:default"/>
 <setEntry value="org.eclipse.e4.rcp:default"/>
+<setEntry value="org.eclipse.e4.tools.bundle.spy.feature:default"/>
+<setEntry value="org.eclipse.e4.tools.context.spy.feature:default"/>
+<setEntry value="org.eclipse.e4.tools.css.spy.feature:default"/>
+<setEntry value="org.eclipse.e4.tools.event.spy.feature:default"/>
+<setEntry value="org.eclipse.e4.tools.model.spy.feature:default"/>
+<setEntry value="org.eclipse.e4.tools.preference.spy.feature:default"/>
+<setEntry value="org.eclipse.e4.tools.spies.feature:default"/>
 <setEntry value="org.eclipse.ecf.core.feature:default"/>
 <setEntry value="org.eclipse.ecf.core.ssl.feature:default"/>
 <setEntry value="org.eclipse.ecf.filetransfer.feature:default"/>
@@ -85,6 +93,7 @@
 <setEntry value="org.eclipse.equinox.p2.user.ui:default"/>
 <setEntry value="org.eclipse.help:default"/>
 <setEntry value="org.eclipse.net4j.util:default"/>
+<setEntry value="org.eclipse.pde:default"/>
 <setEntry value="org.eclipse.platform:default"/>
 <setEntry value="org.eclipse.rcp:default"/>
 </setAttribute>

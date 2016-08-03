@@ -22,6 +22,7 @@ Require-Bundle: javax.inject,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: io.opensemantics.semiotics.extension.api;version="[1.0.0,2.0.0)",
  io.opensemantics.semiotics.extension.api.event;version="1.0.0",
+ io.opensemantics.semiotics.model.assessment,
  javax.annotation;version="1.2.0",
  org.osgi.service.component.annotations;resolution:=optional
 Require-Capability: osgi.service;filter:="(objectClass=io.opensemantics.semiotics.extension.api.Workspace)";effective:=active,

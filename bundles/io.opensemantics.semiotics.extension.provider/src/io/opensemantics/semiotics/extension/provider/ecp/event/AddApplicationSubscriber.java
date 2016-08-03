@@ -26,6 +26,7 @@ import org.osgi.service.event.EventConstants;
 import org.osgi.service.event.EventHandler;
 import org.osgi.service.log.LogService;
 
+import io.opensemantics.semiotics.extension.api.ModelFocal;
 import io.opensemantics.semiotics.model.assessment.Application;
 import io.opensemantics.semiotics.model.assessment.Applications;
 import io.opensemantics.semiotics.model.assessment.Assessment;
@@ -38,6 +39,7 @@ public class AddApplicationSubscriber implements EventHandler {
 
   private LogService logger;
   private ECPProjectManager projectManager;
+  private ModelFocal modelFocus;
   
   @Reference
   void bindLogService(LogService logService) {
@@ -57,6 +59,15 @@ public class AddApplicationSubscriber implements EventHandler {
     this.projectManager = null;
   }
 
+  @Reference
+  void bindModelFocus(ModelFocal modelFocus) {
+    this.modelFocus = modelFocus;
+  }
+
+  void unbindModelFocus(ModelFocal modelFocus) {
+    this.modelFocus = modelFocus;
+  }
+  
   @Override
   public void handleEvent(Event event) {
     final String projectName = (String) event.getProperty(EMFStoreEventConstants.PROP_PROJECT_NAME);
@@ -105,7 +116,7 @@ public class AddApplicationSubscriber implements EventHandler {
       EList<Application> apps = applications.getApplications();        
       Application application = null;
       for (Application app : apps) {
-        if (app.getLabel().equals(iProjectName)) {
+        if (app.getLabel() != null && app.getLabel().equals(iProjectName)) {
           application = app;
           break;
         }
@@ -115,6 +126,7 @@ public class AddApplicationSubscriber implements EventHandler {
         application = AssessmentFactory.eINSTANCE.createApplication();
         application.setLabel(iProjectName);
         apps.add(application);
+        modelFocus.setFocus(application);
       } else {
         String message = String.format("Application already exists for project %s", iProjectName);
         log(LogService.LOG_WARNING, message);

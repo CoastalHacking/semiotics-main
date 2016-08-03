@@ -5,6 +5,7 @@
       <provide interface="org.osgi.service.event.EventHandler"/>
    </service>
    <reference bind="bindLogService" cardinality="1..1" interface="org.osgi.service.log.LogService" name="LogService" policy="static" unbind="unbindLogService"/>
+   <reference bind="bindModelFocus" cardinality="1..1" interface="io.opensemantics.semiotics.extension.api.ModelFocal" name="ModelFocus" policy="static" unbind="unbindModelFocus"/>
    <reference bind="bindProjectManager" cardinality="1..1" interface="org.eclipse.emf.ecp.core.ECPProjectManager" name="ProjectManager" policy="static" unbind="unbindProjectManager"/>
    <implementation class="io.opensemantics.semiotics.extension.provider.ecp.event.AddApplicationSubscriber"/>
 </scr:component>

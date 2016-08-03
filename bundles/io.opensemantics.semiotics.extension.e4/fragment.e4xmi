@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_BxaXACerEeWxCPrV0pAZQQ">
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_BxaXACerEeWxCPrV0pAZQQ">
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="__wx3IFAzEeaskYr25Hh60w" featurename="menuContributions" parentElementId="org.eclipse.e4.legacy.ide.application">
     <elements xsi:type="menu:MenuContribution" xmi:id="_xkZMwFA6EeaskYr25Hh60w" elementId="io.opensemantics.semiotics.extension.e4.menucontribution.0" positionInParent="after=additions" parentId="org.eclipse.ui.navigator.ProjectExplorer#PopupMenu">
       <children xsi:type="menu:Menu" xmi:id="_Scc0oFBLEeaskYr25Hh60w" elementId="io.opensemantics.semiotics.extension.e4.menu.semiotics" visible="false" label="Semiotics">
@@ -18,5 +18,8 @@
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_jCIE4FA0EeaskYr25Hh60w" featurename="handlers" parentElementId="org.eclipse.e4.legacy.ide.application">
     <elements xsi:type="commands:Handler" xmi:id="_lMd1gFA0EeaskYr25Hh60w" elementId="io.opensemantics.semiotics.extension.e4.handler.add.assessment" contributionURI="bundleclass://io.opensemantics.semiotics.extension.e4/io.opensemantics.semiotics.extension.e4.handlers.AddAssessmentHandler" command="_ipoFUFA0EeaskYr25Hh60w"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_rfOWUFgyEeaLQblKHKDN2A" featurename="addons" parentElementId="org.eclipse.e4.legacy.ide.application">
+    <elements xsi:type="application:Addon" xmi:id="_L51gIFg2EeaLQblKHKDN2A" elementId="io.opensemantics.semiotics.extension.e4.addon.modelfocusaddon" contributionURI="bundleclass://io.opensemantics.semiotics.extension.e4/io.opensemantics.semiotics.extension.e4.addon.ModelFocusAddOn"/>
   </fragments>
 </fragment:ModelFragments>
