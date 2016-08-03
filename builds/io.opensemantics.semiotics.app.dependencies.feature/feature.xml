@@ -252,6 +252,18 @@
          id="org.eclipse.emf.codegen"
          version="0.0.0"/>
 
+   <includes
+         id="org.eclipse.emf.transaction"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.emf.validation"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.emf.emfstore.client.transaction.feature"
+         version="0.0.0"/>
+
    <plugin
          id="org.eclipse.equinox.concurrent"
          download-size="0"

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<repository increment="1470234355788" name="Semiotics Model" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
+<repository increment="1470267224185" name="Semiotics Model" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
   <resource>
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="com.ibm.icu"/>
@@ -255,28 +255,28 @@
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="io.opensemantics.semiotics.model.assessment.edit"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="1.0.0.201608031424"/>
+      <attribute name="version" type="Version" value="1.0.0.201608032332"/>
       <directive name="singleton" value="true"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="a96784f707c3a918a0c1f9c97eec8c41f263ef4d3bae4ef02b93ee20a58d5bcb"/>
-      <attribute name="url" value="plugins/io.opensemantics.semiotics.model.assessment.edit_1.0.0.201608031424.jar"/>
-      <attribute name="size" type="Long" value="242040"/>
+      <attribute name="osgi.content" value="9f951e82b870c2d513bd14d53728ed9e7ae8810f111366b88a6d6ee5095b1e7c"/>
+      <attribute name="url" value="plugins/io.opensemantics.semiotics.model.assessment.edit_1.0.0.201608032332.jar"/>
+      <attribute name="size" type="Long" value="242038"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="io.opensemantics.semiotics.model.assessment.edit"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608032332"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="io.opensemantics.semiotics.model.assessment.edit"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608032332"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="io.opensemantics.semiotics.model.assessment.provider"/>
       <attribute name="version" type="Version" value="0.0.0"/>
       <attribute name="bundle-symbolic-name" value="io.opensemantics.semiotics.model.assessment.edit"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608032332"/>
     </capability>
     <requirement namespace="osgi.wiring.bundle">
       <directive name="filter" value="(osgi.wiring.bundle=org.eclipse.core.runtime)"/>
@@ -300,22 +300,22 @@
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="io.opensemantics.semiotics.model.assessment.viewmodel"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="1.0.0.201608031424"/>
+      <attribute name="version" type="Version" value="1.0.0.201608032332"/>
       <directive name="singleton" value="true"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="a3ee36ef18f9f54a295d0fc6be76236ad9571cde13f1c6cafb3ba5632497679f"/>
-      <attribute name="url" value="plugins/io.opensemantics.semiotics.model.assessment.viewmodel_1.0.0.201608031424.jar"/>
-      <attribute name="size" type="Long" value="25326"/>
+      <attribute name="osgi.content" value="3185158544938b350c8fe96ae4028f4df6b64a0c5ad124dd056a0341faa911e3"/>
+      <attribute name="url" value="plugins/io.opensemantics.semiotics.model.assessment.viewmodel_1.0.0.201608032332.jar"/>
+      <attribute name="size" type="Long" value="25325"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="io.opensemantics.semiotics.model.assessment.viewmodel"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608032332"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="io.opensemantics.semiotics.model.assessment.viewmodel"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608032332"/>
     </capability>
     <requirement namespace="osgi.wiring.bundle">
       <directive name="filter" value="(osgi.wiring.bundle=org.eclipse.emf.ecp.view.model.provider.xmi)"/>
@@ -325,40 +325,40 @@
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="io.opensemantics.semiotics.model.assessment"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="1.0.0.201608031424"/>
+      <attribute name="version" type="Version" value="1.0.0.201608032332"/>
       <directive name="singleton" value="true"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="0b4693d9ee78a9f8e8fd0fa512ad0d5fb48e8dedaac22b3c8e1d8f5fd765e78c"/>
-      <attribute name="url" value="plugins/io.opensemantics.semiotics.model.assessment_1.0.0.201608031424.jar"/>
-      <attribute name="size" type="Long" value="140528"/>
+      <attribute name="osgi.content" value="0efd9fb7b1342a7a46c8cc7e0b7b976cb1481e153b4b391e6e82cc8d3b51fb82"/>
+      <attribute name="url" value="plugins/io.opensemantics.semiotics.model.assessment_1.0.0.201608032332.jar"/>
+      <attribute name="size" type="Long" value="140527"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="io.opensemantics.semiotics.model.assessment"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608032332"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="io.opensemantics.semiotics.model.assessment"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608032332"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="io.opensemantics.semiotics.model.assessment"/>
       <attribute name="version" type="Version" value="0.0.0"/>
       <attribute name="bundle-symbolic-name" value="io.opensemantics.semiotics.model.assessment"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608032332"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="io.opensemantics.semiotics.model.assessment.impl"/>
       <attribute name="version" type="Version" value="0.0.0"/>
       <attribute name="bundle-symbolic-name" value="io.opensemantics.semiotics.model.assessment"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608032332"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="io.opensemantics.semiotics.model.assessment.util"/>
       <attribute name="version" type="Version" value="0.0.0"/>
       <attribute name="bundle-symbolic-name" value="io.opensemantics.semiotics.model.assessment"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608032332"/>
     </capability>
     <requirement namespace="osgi.wiring.bundle">
       <directive name="filter" value="(osgi.wiring.bundle=org.eclipse.core.runtime)"/>
@@ -375,28 +375,28 @@
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="io.opensemantics.semiotics.model"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="1.0.0.201608031424"/>
+      <attribute name="version" type="Version" value="1.0.0.201608032332"/>
       <directive name="singleton" value="true"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="ede324f138a513f7e3de0c827c7a3c731f96ade63bebb75efbeb3cfb4fc96c0e"/>
-      <attribute name="url" value="plugins/io.opensemantics.semiotics.model_1.0.0.201608031424.jar"/>
+      <attribute name="osgi.content" value="db93e3016470eb3155b0dcfc40d0e769521ab3d2251a68ed60acd7a02687aeb9"/>
+      <attribute name="url" value="plugins/io.opensemantics.semiotics.model_1.0.0.201608032332.jar"/>
       <attribute name="size" type="Long" value="5805"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="io.opensemantics.semiotics.model"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608032332"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="io.opensemantics.semiotics.model"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608032332"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="io.opensemantics.semiotics.model.assessment.edit"/>
       <attribute name="version" type="Version" value="0.0.0"/>
       <attribute name="bundle-symbolic-name" value="io.opensemantics.semiotics.model"/>
-      <attribute name="bundle-version" type="Version" value="1.0.0.201608031424"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201608032332"/>
     </capability>
     <requirement namespace="osgi.wiring.package">
       <directive name="filter" value="(osgi.wiring.package=org.osgi.framework)"/>
@@ -16670,6 +16670,45 @@
   </resource>
   <resource>
     <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.eclipse.emf.emfstore.client.transaction"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="1.8.0.v20160606-1028"/>
+      <directive name="singleton" value="true"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="3d6840bc41b2f52d05ba13d105e21c62f741dd05d16ea4c84c7e9b058d9c3eee"/>
+      <attribute name="url" value="plugins/org.eclipse.emf.emfstore.client.transaction_1.8.0.v20160606-1028.jar"/>
+      <attribute name="size" type="Long" value="20360"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.eclipse.emf.emfstore.client.transaction"/>
+      <attribute name="bundle-version" type="Version" value="1.8.0.v20160606-1028"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.eclipse.emf.emfstore.client.transaction"/>
+      <attribute name="bundle-version" type="Version" value="1.8.0.v20160606-1028"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.emfstore.internal.client.transaction"/>
+      <attribute name="version" type="Version" value="1.8.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.emfstore.client.transaction"/>
+      <attribute name="bundle-version" type="Version" value="1.8.0.v20160606-1028"/>
+      <directive name="x-internal" value="true"/>
+    </capability>
+    <requirement namespace="osgi.wiring.bundle">
+      <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.emf.emfstore.client)(bundle-version&gt;=1.8.0)(!(bundle-version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.bundle">
+      <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.emf.transaction)(bundle-version&gt;=1.6.0)(!(bundle-version&gt;=2.0.0)))"/>
+      <directive name="visibility" value="reexport"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.5))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.eclipse.emf.emfstore.client.ui.rcp"/>
       <attribute name="type" value="osgi.fragment"/>
       <attribute name="version" type="Version" value="1.8.0.v20160606-1028"/>
@@ -16710,6 +16749,44 @@
     </capability>
     <requirement namespace="osgi.wiring.host">
       <directive name="filter" value="(&amp;(osgi.wiring.host=org.eclipse.emf.emfstore.client.ui)(bundle-version&gt;=1.8.0))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.5))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.eclipse.emf.emfstore.client.ui.transaction"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="1.8.0.v20160606-1028"/>
+      <directive name="singleton" value="true"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="aae77ecc2e62e5be88bf0a1d651aa39b89fb21f644798b8ca965a5bd103f6222"/>
+      <attribute name="url" value="plugins/org.eclipse.emf.emfstore.client.ui.transaction_1.8.0.v20160606-1028.jar"/>
+      <attribute name="size" type="Long" value="11741"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.eclipse.emf.emfstore.client.ui.transaction"/>
+      <attribute name="bundle-version" type="Version" value="1.8.0.v20160606-1028"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.eclipse.emf.emfstore.client.ui.transaction"/>
+      <attribute name="bundle-version" type="Version" value="1.8.0.v20160606-1028"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.emfstore.internal.client.ui.transaction"/>
+      <attribute name="version" type="Version" value="1.8.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.emfstore.client.ui.transaction"/>
+      <attribute name="bundle-version" type="Version" value="1.8.0.v20160606-1028"/>
+      <directive name="x-internal" value="true"/>
+    </capability>
+    <requirement namespace="osgi.wiring.bundle">
+      <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.emf.transaction)(bundle-version&gt;=1.6.0)(!(bundle-version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.bundle">
+      <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.emf.emfstore.client)(bundle-version&gt;=1.8.0)(!(bundle-version&gt;=2.0.0)))"/>
     </requirement>
     <requirement namespace="osgi.ee">
       <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.5))"/>
@@ -18318,6 +18395,428 @@
     </requirement>
     <requirement namespace="osgi.wiring.bundle">
       <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.emf.ecore.xmi)(bundle-version&gt;=2.5.0)(!(bundle-version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.5))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.eclipse.emf.transaction.ui"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="1.4.0.201606071900"/>
+      <directive name="singleton" value="true"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="3619a9f85ad749a820eeb7e285b7ed51ece81d436515ed1fd1cdb69105da4103"/>
+      <attribute name="url" value="plugins/org.eclipse.emf.transaction.ui_1.4.0.201606071900.jar"/>
+      <attribute name="size" type="Long" value="45351"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.eclipse.emf.transaction.ui"/>
+      <attribute name="bundle-version" type="Version" value="1.4.0.201606071900"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.eclipse.emf.transaction.ui"/>
+      <attribute name="bundle-version" type="Version" value="1.4.0.201606071900"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.transaction.ui.internal"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.transaction.ui"/>
+      <attribute name="bundle-version" type="Version" value="1.4.0.201606071900"/>
+      <directive name="x-internal" value="true"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.transaction.ui.internal.l10n"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.transaction.ui"/>
+      <attribute name="bundle-version" type="Version" value="1.4.0.201606071900"/>
+      <directive name="x-internal" value="true"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.transaction.ui.provider"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.transaction.ui"/>
+      <attribute name="bundle-version" type="Version" value="1.4.0.201606071900"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.transaction.ui.view"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.transaction.ui"/>
+      <attribute name="bundle-version" type="Version" value="1.4.0.201606071900"/>
+    </capability>
+    <requirement namespace="osgi.wiring.bundle">
+      <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.emf.edit.ui)(bundle-version&gt;=2.3.0)(!(bundle-version&gt;=3.0.0)))"/>
+      <directive name="visibility" value="reexport"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.bundle">
+      <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.emf.transaction)(bundle-version&gt;=1.2.0)(!(bundle-version&gt;=2.0.0)))"/>
+      <directive name="visibility" value="reexport"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.5))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.eclipse.emf.transaction"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="1.9.0.201606071900"/>
+      <directive name="singleton" value="true"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="c60b46ac9b512252dfbff4508fc787423e16201ac8c0ae1032640a66d56f77c8"/>
+      <attribute name="url" value="plugins/org.eclipse.emf.transaction_1.9.0.201606071900.jar"/>
+      <attribute name="size" type="Long" value="172879"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.eclipse.emf.transaction"/>
+      <attribute name="bundle-version" type="Version" value="1.9.0.201606071900"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.eclipse.emf.transaction"/>
+      <attribute name="bundle-version" type="Version" value="1.9.0.201606071900"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.transaction"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.transaction"/>
+      <attribute name="bundle-version" type="Version" value="1.9.0.201606071900"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.transaction.impl"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.transaction"/>
+      <attribute name="bundle-version" type="Version" value="1.9.0.201606071900"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.transaction.internal"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.transaction"/>
+      <attribute name="bundle-version" type="Version" value="1.9.0.201606071900"/>
+      <directive name="x-friends" value="org.eclipse.emf.transaction.tests"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.transaction.internal.l10n"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.transaction"/>
+      <attribute name="bundle-version" type="Version" value="1.9.0.201606071900"/>
+      <directive name="x-friends" value="org.eclipse.emf.transaction.tests"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.transaction.util"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.transaction"/>
+      <attribute name="bundle-version" type="Version" value="1.9.0.201606071900"/>
+    </capability>
+    <requirement namespace="osgi.wiring.bundle">
+      <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.core.runtime)(bundle-version&gt;=3.4.0)(!(bundle-version&gt;=4.0.0)))"/>
+      <directive name="visibility" value="reexport"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.bundle">
+      <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.emf.edit)(bundle-version&gt;=2.3.0)(!(bundle-version&gt;=3.0.0)))"/>
+      <directive name="visibility" value="reexport"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.bundle">
+      <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.emf.ecore.change)(bundle-version&gt;=2.3.0)(!(bundle-version&gt;=3.0.0)))"/>
+      <directive name="visibility" value="reexport"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.bundle">
+      <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.emf.validation)(bundle-version&gt;=1.2.0)(!(bundle-version&gt;=2.0.0)))"/>
+      <directive name="visibility" value="reexport"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.5))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.eclipse.emf.validation.ui.ide"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="1.3.0.201606071713"/>
+      <directive name="singleton" value="true"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="268f82184c023ec6099be1236b78b1b8caed298e516c1167ee1a6c98a48495eb"/>
+      <attribute name="url" value="plugins/org.eclipse.emf.validation.ui.ide_1.3.0.201606071713.jar"/>
+      <attribute name="size" type="Long" value="22732"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.eclipse.emf.validation.ui.ide"/>
+      <attribute name="bundle-version" type="Version" value="1.3.0.201606071713"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.eclipse.emf.validation.ui.ide"/>
+      <attribute name="bundle-version" type="Version" value="1.3.0.201606071713"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.validation.ui.ide.internal"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.validation.ui.ide"/>
+      <attribute name="bundle-version" type="Version" value="1.3.0.201606071713"/>
+      <directive name="x-internal" value="true"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.validation.ui.ide.internal.l10n"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.validation.ui.ide"/>
+      <attribute name="bundle-version" type="Version" value="1.3.0.201606071713"/>
+      <directive name="x-internal" value="true"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.validation.ui.ide.quickfix"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.validation.ui.ide"/>
+      <attribute name="bundle-version" type="Version" value="1.3.0.201606071713"/>
+    </capability>
+    <requirement namespace="osgi.wiring.bundle">
+      <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.emf.validation)(bundle-version&gt;=1.2.0)(!(bundle-version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.bundle">
+      <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.emf.validation.ui)(bundle-version&gt;=1.2.0)(!(bundle-version&gt;=2.0.0)))"/>
+      <directive name="visibility" value="reexport"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.bundle">
+      <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.ui)(bundle-version&gt;=3.2.0)(!(bundle-version&gt;=4.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.bundle">
+      <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.ui.ide)(bundle-version&gt;=3.2.0)(!(bundle-version&gt;=4.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.bundle">
+      <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.core.runtime)(bundle-version&gt;=3.2.0)(!(bundle-version&gt;=4.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.bundle">
+      <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.core.resources)(bundle-version&gt;=3.2.0)(!(bundle-version&gt;=4.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.5))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.eclipse.emf.validation.ui"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="1.7.0.201606071713"/>
+      <directive name="singleton" value="true"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="023c8bb8f8811e547895ee16eb4afb49afc4bed52346a64225f07619970b7839"/>
+      <attribute name="url" value="plugins/org.eclipse.emf.validation.ui_1.7.0.201606071713.jar"/>
+      <attribute name="size" type="Long" value="75773"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.eclipse.emf.validation.ui"/>
+      <attribute name="bundle-version" type="Version" value="1.7.0.201606071713"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.eclipse.emf.validation.ui"/>
+      <attribute name="bundle-version" type="Version" value="1.7.0.201606071713"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.validation.ui.internal"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.validation.ui"/>
+      <attribute name="bundle-version" type="Version" value="1.7.0.201606071713"/>
+      <directive name="x-internal" value="true"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.validation.ui.internal.console"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.validation.ui"/>
+      <attribute name="bundle-version" type="Version" value="1.7.0.201606071713"/>
+      <directive name="x-internal" value="true"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.validation.ui.internal.l10n"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.validation.ui"/>
+      <attribute name="bundle-version" type="Version" value="1.7.0.201606071713"/>
+      <directive name="x-internal" value="true"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.validation.ui.internal.preferences"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.validation.ui"/>
+      <attribute name="bundle-version" type="Version" value="1.7.0.201606071713"/>
+      <directive name="x-internal" value="true"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.validation.ui.preferences"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.validation.ui"/>
+      <attribute name="bundle-version" type="Version" value="1.7.0.201606071713"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.ibm.icu.text)(version&gt;=4.0.0))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.bundle">
+      <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.emf.validation)(bundle-version&gt;=1.2.0)(!(bundle-version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.bundle">
+      <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.ui)(bundle-version&gt;=3.2.0)(!(bundle-version&gt;=4.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.bundle">
+      <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.core.runtime)(bundle-version&gt;=3.2.0)(!(bundle-version&gt;=4.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.bundle">
+      <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.ui.console)(bundle-version&gt;=3.1.100)(!(bundle-version&gt;=4.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.5))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.eclipse.emf.validation"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="1.8.0.201606071713"/>
+      <directive name="singleton" value="true"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="f5a88711936e261c663f249acf436d30a2856658fc44bbde3a972a841036497b"/>
+      <attribute name="url" value="plugins/org.eclipse.emf.validation_1.8.0.201606071713.jar"/>
+      <attribute name="size" type="Long" value="412895"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.eclipse.emf.validation"/>
+      <attribute name="bundle-version" type="Version" value="1.8.0.201606071713"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.eclipse.emf.validation"/>
+      <attribute name="bundle-version" type="Version" value="1.8.0.201606071713"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.validation"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.validation"/>
+      <attribute name="bundle-version" type="Version" value="1.8.0.201606071713"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.validation.internal"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.validation"/>
+      <attribute name="bundle-version" type="Version" value="1.8.0.201606071713"/>
+      <directive name="x-friends" value="org.eclipse.emf.validation.tests"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.validation.internal.emfadapter"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.validation"/>
+      <attribute name="bundle-version" type="Version" value="1.8.0.201606071713"/>
+      <directive name="x-friends" value="org.eclipse.emf.validation.tests"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.validation.internal.l10n"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.validation"/>
+      <attribute name="bundle-version" type="Version" value="1.8.0.201606071713"/>
+      <directive name="x-friends" value="org.eclipse.emf.validation.tests"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.validation.internal.modeled"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.validation"/>
+      <attribute name="bundle-version" type="Version" value="1.8.0.201606071713"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.validation.internal.modeled.model.validation"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.validation"/>
+      <attribute name="bundle-version" type="Version" value="1.8.0.201606071713"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.validation.internal.modeled.model.validation.impl"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.validation"/>
+      <attribute name="bundle-version" type="Version" value="1.8.0.201606071713"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.validation.internal.modeled.model.validation.util"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.validation"/>
+      <attribute name="bundle-version" type="Version" value="1.8.0.201606071713"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.validation.internal.service"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.validation"/>
+      <attribute name="bundle-version" type="Version" value="1.8.0.201606071713"/>
+      <directive name="x-friends" value="org.eclipse.emf.validation.tests"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.validation.internal.util"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.validation"/>
+      <attribute name="bundle-version" type="Version" value="1.8.0.201606071713"/>
+      <directive name="x-friends" value="org.eclipse.emf.validation.tests"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.validation.marker"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.validation"/>
+      <attribute name="bundle-version" type="Version" value="1.8.0.201606071713"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.validation.model"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.validation"/>
+      <attribute name="bundle-version" type="Version" value="1.8.0.201606071713"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.validation.preferences"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.validation"/>
+      <attribute name="bundle-version" type="Version" value="1.8.0.201606071713"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.validation.service"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.validation"/>
+      <attribute name="bundle-version" type="Version" value="1.8.0.201606071713"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.validation.util"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.validation"/>
+      <attribute name="bundle-version" type="Version" value="1.8.0.201606071713"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.eclipse.emf.validation.xml"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.eclipse.emf.validation"/>
+      <attribute name="bundle-version" type="Version" value="1.8.0.201606071713"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.ibm.icu.text)(version&gt;=4.0.0))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.ibm.icu.lang)(version&gt;=4.0.0))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.ibm.icu.util)(version&gt;=4.0.0))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.bundle">
+      <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.emf.ecore)(bundle-version&gt;=2.3.0)(!(bundle-version&gt;=3.0.0)))"/>
+      <directive name="visibility" value="reexport"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.bundle">
+      <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.emf.edit)(bundle-version&gt;=2.3.0)(!(bundle-version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.bundle">
+      <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.core.expressions)(bundle-version&gt;=3.2.0)(!(bundle-version&gt;=4.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.bundle">
+      <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.core.runtime)(bundle-version&gt;=3.2.0)(!(bundle-version&gt;=4.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.bundle">
+      <directive name="filter" value="(&amp;(osgi.wiring.bundle=org.eclipse.core.resources)(bundle-version&gt;=3.2.0)(!(bundle-version&gt;=4.0.0)))"/>
+      <directive name="visibility" value="reexport"/>
     </requirement>
     <requirement namespace="osgi.ee">
       <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.5))"/>
