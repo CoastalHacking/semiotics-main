@@ -30,7 +30,7 @@ import org.junit.Test;
 import io.opensemantics.semiotics.extension.api.Project;
 import io.opensemantics.semiotics.extension.api.Workspace;
 
-public class WorkspaceITest extends AbstractITest {
+public class WorkspaceITest extends AbstractECPITest {
 
   private static Workspace workspace;
 

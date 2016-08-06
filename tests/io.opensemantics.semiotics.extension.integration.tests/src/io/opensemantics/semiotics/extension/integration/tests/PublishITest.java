@@ -42,7 +42,7 @@ import io.opensemantics.semiotics.model.assessment.Applications;
 import io.opensemantics.semiotics.model.assessment.Assessment;
 import io.opensemantics.semiotics.model.assessment.AssessmentPackage;
 
-public class PublishITest extends AbstractITest {
+public class PublishITest extends AbstractECPITest {
 
   private static Publish publisher;
   // Tycho needs this dependency explicitly called out since it's

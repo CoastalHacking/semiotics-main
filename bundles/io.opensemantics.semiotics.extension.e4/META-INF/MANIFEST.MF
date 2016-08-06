@@ -26,5 +26,6 @@ Import-Package: io.opensemantics.semiotics.extension.api;version="[1.0.0,2.0.0)"
  javax.annotation;version="1.2.0",
  org.osgi.service.component.annotations;resolution:=optional
 Require-Capability: osgi.service;filter:="(objectClass=io.opensemantics.semiotics.extension.api.Workspace)";effective:=active,
- osgi.service;filter:="(objectClass=io.opensemantics.semiotics.extension.api.event.Publish)";effective:=active
+ osgi.service;filter:="(objectClass=io.opensemantics.semiotics.extension.api.event.Publish)";effective:=active,
+ osgi.service;filter:="(objectClass=io.opensemantics.semiotics.extension.api.DTOAdapter)";effective:=active
 Bundle-ActivationPolicy: lazy

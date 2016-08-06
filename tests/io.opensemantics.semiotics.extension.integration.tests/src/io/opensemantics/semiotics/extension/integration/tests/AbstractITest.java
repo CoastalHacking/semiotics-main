@@ -15,58 +15,27 @@
  */
 package io.opensemantics.semiotics.extension.integration.tests;
 
-import static org.junit.Assert.assertNotNull;
+import java.util.Dictionary;
 
-import java.util.Collection;
-
-import org.eclipse.emf.ecp.core.ECPProject;
-import org.eclipse.emf.ecp.core.ECPProjectManager;
-import org.eclipse.emf.ecp.core.ECPProvider;
-import org.eclipse.emf.ecp.core.ECPProviderRegistry;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
 import org.osgi.framework.Bundle;
+import org.osgi.framework.BundleException;
 import org.osgi.framework.FrameworkUtil;
 import org.osgi.framework.ServiceRegistration;
 import org.osgi.util.tracker.ServiceTracker;
 
 public abstract class AbstractITest {
 
-  protected static ECPProjectManager projectManager;
-  protected static ECPProviderRegistry providerRegistry;
-  protected static ECPProvider provider;
-
-  @BeforeClass
-  public static void beforeAbstractClass() {
-    projectManager = getService(WorkspaceITest.class, ECPProjectManager.class);
-    clearProjects(projectManager.getProjects());
-    providerRegistry = getService(PublishITest.class, ECPProviderRegistry.class);
-
-    // cheater, cheater, pumpkin eater
-    // should be agnostic to the provider type
-    provider = providerRegistry.getProvider("org.eclipse.emf.ecp.emfstore.provider");
-  }
-  
-  @AfterClass
-  public static void afterAbstractClass() {
-    projectManager = null;
-    providerRegistry = null;
-    provider = null;
-  }
-  
-  @Test
-  public void beforeAbstract() {
-    assertNotNull(projectManager);
-    assertNotNull(providerRegistry);
-    assertNotNull(provider);
-  }
-  
   // http://blog.vogella.com/2016/07/04/osgi-component-testing/
   // This leaks ServiceTrackers
   protected static <B, T> T getService(Class<B> bundleClass, Class<T> serviceClass) {
     Bundle bundle = FrameworkUtil.getBundle(bundleClass);
     if (bundle != null) {
+      // Ensure a call to get the context returns something non-null
+      try {
+        bundle.start();
+      } catch (BundleException e1) {
+        return null;
+      }
       ServiceTracker<T, T> st = new ServiceTracker<T, T>(
           bundle.getBundleContext(), serviceClass, null);
       st.open();
@@ -81,6 +50,19 @@ public abstract class AbstractITest {
     return null;
   }
 
+  protected static <B, T> ServiceRegistration<T> registerService(Class<B> bundleClass, Class<T> serviceClass, T service, Dictionary<String, ?>properties) {
+    Bundle bundle = FrameworkUtil.getBundle(bundleClass);
+    if (bundle != null) {
+      // Ensure a call to get the context returns something non-null
+      try {
+        bundle.start();
+        return bundle.getBundleContext().registerService(serviceClass, service, properties);
+      } catch (BundleException e1) {
+      }
+    }
+    return null;
+  }
+  
   protected static <B, T> ServiceRegistration<T> setService(Class<B> bundleClass, Class<T> serviceClass, T service) {
     Bundle bundle = FrameworkUtil.getBundle(bundleClass);
     if (bundle != null) {
@@ -89,11 +71,4 @@ public abstract class AbstractITest {
     return null;
   }
 
-  private static void clearProjects(Collection<ECPProject> ecpProjects) {
-    if (ecpProjects == null) return;
-
-    for (ECPProject project : ecpProjects) {
-      project.delete();
-    }
-  }
 }

@@ -13,3 +13,9 @@ provides.3.name = org.osgi.service.event.EventHandler
 
 provides.4.namespace = osgi.service
 provides.4.name = io.opensemantics.semiotics.extension.api.ModelFocal
+
+provides.5.namespace = osgi.service
+provides.5.name = io.opensemantics.semiotics.extension.api.event.Post
+
+provides.6.namespace = osgi.service
+provides.6.name = io.opensemantics.semiotics.extension.api.DTOAdapter
