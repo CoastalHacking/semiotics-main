@@ -35,6 +35,7 @@ Provide-Capability: osgi.service;objectClass:List<String>=
  io.opensemantics.semiotics.extension.api.ModelFocal,
  io.opensemantics.semiotics.extension.api.event.Post,
  io.opensemantics.semiotics.extension.api.DTOAdapter,
+ io.opensemantics.semiotics.extension.provider.api.ChangeCommandProvider,
  org.osgi.service.event.EventHandler"
 Require-Bundle: org.eclipse.core.resources,
  io.opensemantics.semiotics.model.assessment;bundle-version="1.0.0",

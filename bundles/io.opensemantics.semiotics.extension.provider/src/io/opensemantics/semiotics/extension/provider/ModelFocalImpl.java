@@ -16,6 +16,7 @@
 package io.opensemantics.semiotics.extension.provider;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
@@ -34,6 +35,8 @@ public class ModelFocalImpl implements ModelFocal {
 
   final List<ModelFocalUpdateHandler> updateHandlers = Collections.synchronizedList(new ArrayList<>());
   final AtomicReference<Object> focus = new AtomicReference<>();
+  final Object focusesLock = new Object();
+  final List<Object> focuses = new ArrayList<>();
   
   @Override
   public Object getFocus() {
@@ -64,5 +67,18 @@ public class ModelFocalImpl implements ModelFocal {
 
   void unbindHandler(ModelFocalUpdateHandler updateHandler) {
     updateHandlers.remove(updateHandler);
+  }
+
+  @Override
+  synchronized public Object[] getFocuses() {
+    return focuses.toArray();
+  }
+
+  @Override
+  public void setFocuses(Object[] models) {
+    synchronized (focusesLock) {
+      focuses.clear();
+      focuses.addAll(Arrays.asList(models));
+    }
   }
 }

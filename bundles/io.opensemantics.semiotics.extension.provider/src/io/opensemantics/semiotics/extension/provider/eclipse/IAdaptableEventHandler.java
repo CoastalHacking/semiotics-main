@@ -15,6 +15,16 @@
  */
 package io.opensemantics.semiotics.extension.provider.eclipse;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecp.core.ECPProject;
+import org.eclipse.emf.ecp.core.ECPProjectManager;
+import org.eclipse.emf.edit.command.ChangeCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.event.Event;
@@ -22,14 +32,19 @@ import org.osgi.service.event.EventHandler;
 
 import io.opensemantics.semiotics.extension.api.ModelFocal;
 import io.opensemantics.semiotics.extension.provider.api.PostEventUtil;
+import io.opensemantics.semiotics.extension.provider.ecp.TypedChangeCommand;
+import io.opensemantics.semiotics.model.assessment.Application;
+import io.opensemantics.semiotics.model.assessment.Applications;
+import io.opensemantics.semiotics.model.assessment.Assessment;
+import io.opensemantics.semiotics.model.assessment.AssessmentFactory;
 
+// TODO: hide EventHandler details behind an API Handler
 @Component(
     property=IAdaptableConstants.IADAPTABLE_TOPIC
 )
 public class IAdaptableEventHandler implements EventHandler {
 
   private ModelFocal modelFocus;
-
   @Reference
   void bindModelFocus(ModelFocal modelFocus) {
     this.modelFocus = modelFocus;
@@ -39,6 +54,16 @@ public class IAdaptableEventHandler implements EventHandler {
     this.modelFocus = modelFocus;
   }
 
+  private ECPProjectManager projectManager;
+  @Reference
+  void bindProjectManager(ECPProjectManager projectManager) {
+    this.projectManager = projectManager;
+  }
+
+  void unbindProjectManager(ECPProjectManager projectManager) {
+    this.projectManager = null;
+  }
+  
   @Override
   public void handleEvent(Event event) {
     // TODO: hide these details?
@@ -48,6 +73,7 @@ public class IAdaptableEventHandler implements EventHandler {
       final IProjectDTO dto = (IProjectDTO) data;
       switch (dto.type) {
       case APPLICATION:
+        addAsApplication(dto);
         break;
       default:
         break;
@@ -55,18 +81,43 @@ public class IAdaptableEventHandler implements EventHandler {
     }
   }
 
-  /*
-  private void addAsApplication(String projectName, IProject iProject) {
+  // FIXME: better logging on false / failure cases
+  // FIXME: abstract out design below
+  private void addAsApplication(final IProjectDTO dto) {
 
-    final String iProjectName = iProject.getName();
+    // Get a project
+    ECPProject project = null;
+    final Object[] focuses = modelFocus.getFocuses();
+    if (focuses.length > 0) {
+      if (focuses[0] instanceof ECPProject) {
+        project = (ECPProject) focuses[0];
+      }
+    }
+    if (project == null) {
+      Iterator<ECPProject> projIt = projectManager.getProjects().iterator();
+      if (projIt.hasNext()) project = projIt.next();
+    }
+    
+    if (project == null) return;
+    if (!project.isOpen()) project.open();
+
+    // Get an editing domain
+    final EditingDomain editingDomain = project.getEditingDomain();
+    if (!(editingDomain instanceof TransactionalEditingDomain)) return;
 
     // Get the root EObject
     Assessment assessment = null;
-    for (Object content : ecpProject.getContents()) {
-      if (content instanceof Assessment) {
-        // FIXME: breaks on first match
-        assessment = (Assessment)content;
-        break;
+    if (focuses.length > 1) {
+      if (focuses[1] instanceof Assessment) {
+        assessment = (Assessment) focuses[1];
+      }
+    }
+    if (assessment == null) {
+      for (Object content : project.getContents()) {
+        if (content instanceof Assessment) {
+          assessment = (Assessment)content;
+          break;
+        }
       }
     }
 
@@ -74,18 +125,17 @@ public class IAdaptableEventHandler implements EventHandler {
     List<ChangeCommand> changeCommands = new ArrayList<>();
     if (assessment == null) {
       assessment = AssessmentFactory.eINSTANCE.createAssessment();
-      changeCommands.add(new TypedChangeCommand<Assessment>(assessment) {
+      changeCommands.add(new TypedChangeCommand<Assessment>(assessment, project) {
         @Override
         protected void doExecute() {
-          ecpProject.getContents().add(root);
+          project.getContents().add(root);
         }
       });
     }
 
-    changeCommands.add(new TypedChangeCommand<Assessment>(assessment) {
+    changeCommands.add(new TypedChangeCommand<Assessment>(assessment, project) {
       @Override
       protected void doExecute() {
-        // Create or get applications container
         Applications applications = root.getApplications();
         if (applications == null) {
           applications = AssessmentFactory.eINSTANCE.createApplications();
@@ -95,7 +145,7 @@ public class IAdaptableEventHandler implements EventHandler {
         EList<Application> apps = applications.getApplications();        
         Application application = null;
         for (Application app : apps) {
-          if (app.getLabel() != null && app.getLabel().equals(iProjectName)) {
+          if (app.getLabel() != null && app.getLabel().equals(dto.name)) {
             application = app;
             break;
           }
@@ -103,14 +153,16 @@ public class IAdaptableEventHandler implements EventHandler {
 
         if (application == null) {
           application = AssessmentFactory.eINSTANCE.createApplication();
-          application.setLabel(iProjectName);
+          application.setLabel(dto.name);
           apps.add(application);
-          modelFocus.setFocus(application);
         }
       }
     });
 
+    // Apply changes
+    for (ChangeCommand command: changeCommands) {
+      editingDomain.getCommandStack().execute(command);
+    }
   }
-*/
 
 }

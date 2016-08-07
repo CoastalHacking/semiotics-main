@@ -131,7 +131,7 @@ public class AddApplicationSubscriber implements EventHandler {
     List<ChangeCommand> changeCommands = new ArrayList<>();
     if (assessment == null) {
       assessment = AssessmentFactory.eINSTANCE.createAssessment();
-      changeCommands.add(new TypedChangeCommand<Assessment>(assessment) {
+      changeCommands.add(new TypedChangeCommand<Assessment>(assessment, ecpProject) {
         @Override
         protected void doExecute() {
           ecpProject.getContents().add(root);
@@ -139,7 +139,7 @@ public class AddApplicationSubscriber implements EventHandler {
       });
     }
 
-    changeCommands.add(new TypedChangeCommand<Assessment>(assessment) {
+    changeCommands.add(new TypedChangeCommand<Assessment>(assessment, ecpProject) {
       @Override
       protected void doExecute() {
         // Create or get applications container

@@ -19,5 +19,9 @@ public interface ModelFocal {
 
   Object getFocus();
   
+  Object[] getFocuses();
+  
   void setFocus(Object model);
+  
+  void setFocuses(Object[] models);
 }

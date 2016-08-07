@@ -16,15 +16,18 @@
 package io.opensemantics.semiotics.extension.provider.ecp;
 
 import org.eclipse.emf.common.notify.Notifier;
+import org.eclipse.emf.ecp.core.ECPProject;
 import org.eclipse.emf.edit.command.ChangeCommand;
 
 public abstract class TypedChangeCommand<T extends Notifier> extends ChangeCommand {
 
   protected T root;
+  protected ECPProject project;
 
-  public TypedChangeCommand(T notifier) {
+  public TypedChangeCommand(T notifier, ECPProject project) {
     super(notifier);
     root = notifier;
+    this.project = project;
   }
 
 }

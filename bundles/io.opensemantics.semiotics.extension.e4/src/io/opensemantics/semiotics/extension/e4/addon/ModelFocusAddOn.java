@@ -26,6 +26,8 @@ import org.eclipse.e4.ui.workbench.UIEvents;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.e4.ui.workbench.modeling.ISelectionListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.ITreeSelection;
+import org.eclipse.jface.viewers.TreePath;
 
 import io.opensemantics.semiotics.extension.api.ModelFocal;
 
@@ -52,6 +54,19 @@ public class ModelFocusAddOn {
         selectionListener = new ISelectionListener() {
           @Override
           public void selectionChanged(MPart part, Object selection) {
+            if (selection instanceof ITreeSelection) {
+              ITreeSelection tree = (ITreeSelection) selection;
+              TreePath[] paths = tree.getPaths();
+              // FIXME: hardcoded first path
+              if (paths != null && paths.length > 0) {
+                TreePath path = paths[0];
+                Object[] focuses = new Object[path.getSegmentCount()];
+                for (int i=0; i < path.getSegmentCount(); i++) {
+                  focuses[i] = path.getSegment(i);
+                }
+                modelFocusService.setFocuses(focuses);
+              }
+            }
             if (selection instanceof IStructuredSelection) {
               IStructuredSelection iStruct = (IStructuredSelection)selection;
               // Only set when one distinct element is chosen
