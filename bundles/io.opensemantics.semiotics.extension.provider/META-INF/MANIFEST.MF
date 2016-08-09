@@ -24,7 +24,8 @@ Service-Component: OSGI-INF/io.opensemantics.semiotics.extension.provider.ecp.EC
  OSGI-INF/io.opensemantics.semiotics.extension.provider.ModelFocalImpl.xml,
  OSGI-INF/io.opensemantics.semiotics.extension.provider.PostImpl.xml,
  OSGI-INF/io.opensemantics.semiotics.extension.provider.eclipse.IAdaptableDTOAdapter.xml,
- OSGI-INF/io.opensemantics.semiotics.extension.provider.eclipse.IAdaptableEventHandler.xml
+ OSGI-INF/io.opensemantics.semiotics.extension.provider.eclipse.IAdaptableEventHandler.xml,
+ OSGI-INF/io.opensemantics.semiotics.extension.provider.DTOAdapterProviderImpl.xml
 Bundle-ActivationPolicy: lazy
 X-Hack-Comment: Below Require-Capability only works in Equinox 1.2
 Require-Capability: osgi.extender;

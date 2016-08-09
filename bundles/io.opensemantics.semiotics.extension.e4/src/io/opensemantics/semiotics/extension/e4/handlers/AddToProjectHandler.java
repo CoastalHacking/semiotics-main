@@ -15,31 +15,29 @@
  */
 package io.opensemantics.semiotics.extension.e4.handlers;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
+import java.util.Set;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.di.annotations.Optional;
-import org.eclipse.e4.ui.di.AboutToHide;
-import org.eclipse.e4.ui.di.AboutToShow;
-import org.eclipse.e4.ui.model.application.MApplication;
-import org.eclipse.e4.ui.model.application.ui.menu.MMenuElement;
-import org.eclipse.e4.ui.model.application.ui.menu.MMenuItem;
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.services.IServiceConstants;
-import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.IPartService;
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.texteditor.AbstractTextEditor;
 
 import io.opensemantics.semiotics.extension.api.DTO;
 import io.opensemantics.semiotics.extension.api.DTOAdapter;
 import io.opensemantics.semiotics.extension.api.DTOType;
 import io.opensemantics.semiotics.extension.api.event.Post;
-import io.opensemantics.semiotics.extension.api.event.Publish;
 
 public class AddToProjectHandler {
 
@@ -47,14 +45,29 @@ public class AddToProjectHandler {
   ESelectionService selectionService;
   
   @Execute
-  @Optional
   public void execute(
-      @Named (IServiceConstants.ACTIVE_SELECTION) IStructuredSelection selection,
-      @Named (DynamicTypeMenuHandler.COMMAND_PARAM_TYPE) String type,
+      @Optional @Named (IServiceConstants.ACTIVE_SELECTION) IStructuredSelection selection,
+      @Optional @Named (DynamicTypeMenuHandler.COMMAND_PARAM_TYPE) String type,
+      @Optional IPartService iPartService,
       DTOAdapter adapter,
       Post post) {
 
+    if (iPartService != null) {
+      IWorkbenchPart workbenchPart = iPartService.getActivePart();
+      if (workbenchPart instanceof AbstractTextEditor) {
+        AbstractTextEditor textEditor = (AbstractTextEditor)workbenchPart;
+        IFileEditorInput iFileEditor = textEditor.getEditorInput().getAdapter(IFileEditorInput.class);
+        if (iFileEditor != null) {
+          IFile iFile = iFileEditor.getFile();
+          // Resource
+          System.out.println("File name: " + iFile.getFullPath());
+
+        }
+      }
+    }
+
     @SuppressWarnings("rawtypes")
+    // can be null
     final Iterator it = selection.iterator();
     final DTOType dtoType = DTOType.valueOf(type);
     while (it.hasNext()) {

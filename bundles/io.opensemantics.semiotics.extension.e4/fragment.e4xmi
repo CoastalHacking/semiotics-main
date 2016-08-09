@@ -3,13 +3,17 @@
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="__wx3IFAzEeaskYr25Hh60w" featurename="menuContributions" parentElementId="org.eclipse.e4.legacy.ide.application">
     <elements xsi:type="menu:MenuContribution" xmi:id="_xkZMwFA6EeaskYr25Hh60w" elementId="io.opensemantics.semiotics.extension.e4.menucontribution.0" positionInParent="after=additions" parentId="org.eclipse.ui.navigator.ProjectExplorer#PopupMenu">
       <children xsi:type="menu:Menu" xmi:id="_Scc0oFBLEeaskYr25Hh60w" elementId="io.opensemantics.semiotics.extension.e4.menu.semiotics" visible="false" label="Semiotics">
-        <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_VbyFwFN7EeacorJrXcOS-w" coreExpressionId="io.opensemantics.semiotics.extension.e4.expression.projectshow"/>
+        <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_VbyFwFN7EeacorJrXcOS-w" coreExpressionId="io.opensemantics.semiotics.extension.e4.expression.iresource"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_6SOfkFA6EeaskYr25Hh60w" elementId="io.opensemantics.semiotics.extension.e4.handledmenuitem.project" label="Old Add to..." command="_ipoFUFA0EeaskYr25Hh60w"/>
-        <children xsi:type="menu:Menu" xmi:id="_ZVu6AFDiEeaskYr25Hh60w" elementId="io.opensemantics.semiotics.extension.e4.menu.addasassessmentto" label="Old...">
-          <children xsi:type="menu:DynamicMenuContribution" xmi:id="_38-iYFDdEeaskYr25Hh60w" elementId="io.opensemantics.semiotics.extension.e4.dynamicmenucontribution.0" label="Dynamic assessment" contributionURI="bundleclass://io.opensemantics.semiotics.extension.e4/io.opensemantics.semiotics.extension.e4.handlers.DynamicMenuAssessmentHandler"/>
-        </children>
         <children xsi:type="menu:Menu" xmi:id="_RoPp8FniEeaAueAnnKgWKA" elementId="io.opensemantics.semiotics.extension.e4.menu.addastype" label="Add as...">
           <children xsi:type="menu:DynamicMenuContribution" xmi:id="_UoZBMFniEeaAueAnnKgWKA" elementId="io.opensemantics.semiotics.extension.e4.dynamicmenucontribution.1" label="Dynamic menu handler" contributionURI="bundleclass://io.opensemantics.semiotics.extension.e4/io.opensemantics.semiotics.extension.e4.handlers.DynamicTypeMenuHandler"/>
+        </children>
+      </children>
+    </elements>
+    <elements xsi:type="menu:MenuContribution" xmi:id="_kDfTQFzBEeaAueAnnKgWKA" elementId="io.opensemantics.semiotics.extension.e4.menucontribution.1" positionInParent="after=additions" parentId="#AbstractTextEditorContext">
+      <children xsi:type="menu:Menu" xmi:id="_prYv4FzBEeaAueAnnKgWKA" elementId="io.opensemantics.semiotics.extension.e4.menu.semiotics" label="Semiotics">
+        <children xsi:type="menu:Menu" xmi:id="_qmwzAFzBEeaAueAnnKgWKA" elementId="io.opensemantics.semiotics.extension.e4.menu.addas" label="Add as...">
+          <children xsi:type="menu:DynamicMenuContribution" xmi:id="_raRTkFzBEeaAueAnnKgWKA" elementId="io.opensemantics.semiotics.extension.e4.dynamicmenu.texteditor" label="Dynamic text editor menu handler" contributionURI="bundleclass://io.opensemantics.semiotics.extension.e4/io.opensemantics.semiotics.extension.e4.handlers.DynamicTextEditorMenuHandler"/>
         </children>
       </children>
     </elements>

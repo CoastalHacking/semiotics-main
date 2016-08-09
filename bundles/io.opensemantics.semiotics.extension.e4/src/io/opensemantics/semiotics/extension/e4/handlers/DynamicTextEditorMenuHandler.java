@@ -22,21 +22,34 @@ import java.util.Set;
 
 import javax.inject.Named;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.AboutToShow;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.model.application.commands.MCommand;
 import org.eclipse.e4.ui.model.application.commands.MParameter;
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.model.application.ui.menu.MHandledMenuItem;
 import org.eclipse.e4.ui.model.application.ui.menu.MMenuElement;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
+import org.eclipse.jdt.core.IJavaElement;
+import org.eclipse.jface.text.ITextSelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.IPartService;
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.texteditor.AbstractTextEditor;
 
 import io.opensemantics.semiotics.extension.api.DTOAdapter;
+import io.opensemantics.semiotics.extension.api.DTOAdapterProvider;
 import io.opensemantics.semiotics.extension.api.DTOType;
 
-public class DynamicTypeMenuHandler {
+/*
+ * This is a copy-paste of DynamicTypeMenuHandler. 
+ * Common functionality between that and this class should be abstracted out.
+ */
+public class DynamicTextEditorMenuHandler {
   
   public static final String COMMAND = "io.opensemantics.semiotics.extension.e4.command.add.type";
   public static final String COMMAND_PARAM_TYPE = "io.opensemantics.semiotics.extension.e4.commandparameter.type";
@@ -46,29 +59,37 @@ public class DynamicTypeMenuHandler {
       List<MMenuElement> items,
       MApplication application,
       EModelService modelServices,
-      DTOAdapter dtoAdapter,
+      DTOAdapterProvider dtoAdapterProvider,
+      @Optional IPartService iPartService,
       @Optional @Named (IServiceConstants.ACTIVE_SELECTION) Object selection) {
-
+    
     if (selection == null) {
       return;
     }
 
-    // ITextSelection
-    Set<DTOType> types = new HashSet<>();
-    @SuppressWarnings("rawtypes")
-    Iterator it = null;
-    if (selection instanceof IStructuredSelection) {
-      IStructuredSelection iSelection = (IStructuredSelection) selection;
-      it = iSelection.iterator();
+    final Set<DTOType> types = new HashSet<>();
+
+    if (iPartService != null) {
+      IWorkbenchPart workbenchPart = iPartService.getActivePart();
+      if (workbenchPart instanceof AbstractTextEditor) {
+        AbstractTextEditor textEditor = (AbstractTextEditor)workbenchPart;
+        IFileEditorInput iFileEditor = textEditor.getEditorInput().getAdapter(IFileEditorInput.class);
+        if (iFileEditor != null) {
+          IFile iFile = iFileEditor.getFile();
+          // Resource
+          //System.out.println("File name: " + iFile.getFullPath());
+          types.addAll(dtoAdapterProvider.getAdaptableTypes(iFile));
+        }
+      }
     }
-    
-    if (it == null) {
-      return;
+
+    if (selection instanceof ITextSelection) {
+      ITextSelection iTextSelection = (ITextSelection) selection;
+      System.out.println(String.format("Lines %d-%d; offset: %d; len: %d", iTextSelection.getStartLine(), iTextSelection.getEndLine(), iTextSelection.getOffset(), iTextSelection.getLength()));
+      // snippet
+      types.addAll(dtoAdapterProvider.getAdaptableTypes(iTextSelection));
     }
-    while (it.hasNext()) {
-      final Object element = it.next();
-      types.addAll(dtoAdapter.getAdaptableTypes(element));
-    }
+    types.add(DTOType.APPLICATION);
 
     for (DTOType type: types) {
       final MHandledMenuItem menuItem = modelServices.createModelElement(MHandledMenuItem.class);

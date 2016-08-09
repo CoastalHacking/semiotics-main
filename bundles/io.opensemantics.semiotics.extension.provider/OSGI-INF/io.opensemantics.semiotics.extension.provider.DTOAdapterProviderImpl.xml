@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="io.opensemantics.semiotics.extension.provider.DTOAdapterProviderImpl">
+   <service>
+      <provide interface="io.opensemantics.semiotics.extension.api.DTOAdapterProvider"/>
+   </service>
+   <reference bind="bindDTOAdapter" cardinality="0..n" interface="io.opensemantics.semiotics.extension.api.DTOAdapter" name="DTOAdapter" policy="dynamic" unbind="unbindDTOAdapter"/>
+   <implementation class="io.opensemantics.semiotics.extension.provider.DTOAdapterProviderImpl"/>
+</scr:component>

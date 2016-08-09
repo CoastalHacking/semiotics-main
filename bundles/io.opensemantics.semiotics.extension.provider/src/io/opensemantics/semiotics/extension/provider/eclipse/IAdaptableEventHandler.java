@@ -98,8 +98,7 @@ public class IAdaptableEventHandler implements EventHandler {
       if (projIt.hasNext()) project = projIt.next();
     }
     
-    if (project == null) return;
-    if (!project.isOpen()) project.open();
+    if (project == null || !project.isOpen()) return;
 
     // Get an editing domain
     final EditingDomain editingDomain = project.getEditingDomain();
@@ -155,6 +154,7 @@ public class IAdaptableEventHandler implements EventHandler {
           application = AssessmentFactory.eINSTANCE.createApplication();
           application.setLabel(dto.name);
           apps.add(application);
+          modelFocus.setFocus(application);
         }
       }
     });
