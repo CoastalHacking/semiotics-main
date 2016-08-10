@@ -15,29 +15,21 @@
  */
 package io.opensemantics.semiotics.extension.e4.handlers;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.di.annotations.Optional;
-import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
-import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IPartService;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.texteditor.AbstractTextEditor;
 
-import io.opensemantics.semiotics.extension.api.DTO;
-import io.opensemantics.semiotics.extension.api.DTOAdapter;
-import io.opensemantics.semiotics.extension.api.DTOType;
-import io.opensemantics.semiotics.extension.api.event.Post;
+import io.opensemantics.semiotics.extension.api.AdapterProvider;
 
 public class AddToProjectHandler {
 
@@ -46,11 +38,21 @@ public class AddToProjectHandler {
   
   @Execute
   public void execute(
-      @Optional @Named (IServiceConstants.ACTIVE_SELECTION) IStructuredSelection selection,
+      @Optional @Named (IServiceConstants.ACTIVE_SELECTION) ISelection selection,
       @Optional @Named (DynamicTypeMenuHandler.COMMAND_PARAM_TYPE) String type,
       @Optional IPartService iPartService,
-      DTOAdapter adapter,
-      Post post) {
+      @Optional AdapterProvider adapterProvider) {
+
+    if (type == null) return;
+
+    final Class<?> clazz;
+    try {
+      clazz = Class.forName(type);
+    } catch (ClassNotFoundException cnf) {
+      // TODO : log
+      cnf.printStackTrace();
+      return;
+    }
 
     if (iPartService != null) {
       IWorkbenchPart workbenchPart = iPartService.getActivePart();
@@ -60,21 +62,15 @@ public class AddToProjectHandler {
         if (iFileEditor != null) {
           IFile iFile = iFileEditor.getFile();
           // Resource
-          System.out.println("File name: " + iFile.getFullPath());
-
+          adapterProvider.publish(iFile, clazz);
         }
       }
     }
 
-    @SuppressWarnings("rawtypes")
-    // can be null
-    final Iterator it = selection.iterator();
-    final DTOType dtoType = DTOType.valueOf(type);
-    while (it.hasNext()) {
-      final Object element = it.next();
-      DTO dto = adapter.adapt(element, dtoType);
-      post.add(dto);
+    if (selection != null && !selection.isEmpty()) {
+      adapterProvider.publish(selection, clazz);
     }
+
   }
 
 }

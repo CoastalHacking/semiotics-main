@@ -19,3 +19,9 @@ provides.5.name = io.opensemantics.semiotics.extension.api.event.Post
 
 provides.6.namespace = osgi.service
 provides.6.name = io.opensemantics.semiotics.extension.api.DTOAdapter
+
+provides.7.namespace = osgi.service
+provides.7.name = io.opensemantics.semiotics.extension.api.Adapter
+
+provides.8.namespace = osgi.service
+provides.8.name = io.opensemantics.semiotics.extension.api.AdapterProvider

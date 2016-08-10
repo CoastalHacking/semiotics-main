@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<io.opensemantics.semiotics.model.assessment:Assessment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:io.opensemantics.semiotics.model.assessment="http://io/opensemantics/semiotics/model/assessment"
+    xsi:schemaLocation="http://io/opensemantics/semiotics/model/assessment assessment.ecore"/>

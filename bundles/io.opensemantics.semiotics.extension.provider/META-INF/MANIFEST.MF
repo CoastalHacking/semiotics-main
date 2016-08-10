@@ -13,6 +13,8 @@ Import-Package: io.opensemantics.semiotics.extension.api;version="[1.0.0,2.0.0)"
  org.eclipse.emf.edit.command,
  org.eclipse.emf.edit.domain,
  org.eclipse.emf.transaction,
+ org.eclipse.jface.text,
+ org.eclipse.jface.viewers,
  org.osgi.framework,
  org.osgi.service.component;version="1.2.2",
  org.osgi.service.component.annotations;version="[1.2.0,2.0.0)";resolution:=optional,
@@ -25,7 +27,11 @@ Service-Component: OSGI-INF/io.opensemantics.semiotics.extension.provider.ecp.EC
  OSGI-INF/io.opensemantics.semiotics.extension.provider.PostImpl.xml,
  OSGI-INF/io.opensemantics.semiotics.extension.provider.eclipse.IAdaptableDTOAdapter.xml,
  OSGI-INF/io.opensemantics.semiotics.extension.provider.eclipse.IAdaptableEventHandler.xml,
- OSGI-INF/io.opensemantics.semiotics.extension.provider.DTOAdapterProviderImpl.xml
+ OSGI-INF/io.opensemantics.semiotics.extension.provider.DTOAdapterProviderImpl.xml,
+ OSGI-INF/io.opensemantics.semiotics.extension.provider.AdapterProviderImpl.xml,
+ OSGI-INF/io.opensemantics.semiotics.extension.provider.AdapterEventHandler.xml,
+ OSGI-INF/io.opensemantics.semiotics.extension.provider.adapter.ISelectionAdapter.xml,
+ OSGI-INF/io.opensemantics.semiotics.extension.provider.adapter.IAdaptableAdapter.xml
 Bundle-ActivationPolicy: lazy
 X-Hack-Comment: Below Require-Capability only works in Equinox 1.2
 Require-Capability: osgi.extender;
@@ -36,6 +42,8 @@ Provide-Capability: osgi.service;objectClass:List<String>=
  io.opensemantics.semiotics.extension.api.ModelFocal,
  io.opensemantics.semiotics.extension.api.event.Post,
  io.opensemantics.semiotics.extension.api.DTOAdapter,
+ io.opensemantics.semiotics.extension.api.Adapter,
+ io.opensemantics.semiotics.extension.api.AdapterProvider,
  io.opensemantics.semiotics.extension.provider.api.ChangeCommandProvider,
  org.osgi.service.event.EventHandler"
 Require-Bundle: org.eclipse.core.resources,
