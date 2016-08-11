@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="io.opensemantics.semiotics.extension.feature"
-      label="Semiotics Extensions Feature"
+      id="io.opensemantics.semiotics.tests.feature"
+      label="Semiotics Tests Feature"
       version="1.0.0.qualifier">
 
    <description url="http://www.example.com/description">
@@ -16,38 +16,28 @@
       [Enter License Description here.]
    </license>
 
-   <includes
-         id="io.opensemantics.semiotics.app.dependencies.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="io.opensemantics.semiotics.model.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.platform"
-         version="0.0.0"/>
-
-   <includes
-         id="io.opensemantics.semiotics.extension.provider.dependencies.feature"
+   <plugin
+         id="org.junit"
+         download-size="0"
+         install-size="0"
          version="0.0.0"/>
 
    <plugin
-         id="io.opensemantics.semiotics.extension.e4"
+         id="org.hamcrest"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="io.opensemantics.semiotics.extension.api"
+         id="org.hamcrest.core"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="io.opensemantics.semiotics.extension.provider"
+         id="org.objenesis"
          download-size="0"
          install-size="0"
          version="0.0.0"

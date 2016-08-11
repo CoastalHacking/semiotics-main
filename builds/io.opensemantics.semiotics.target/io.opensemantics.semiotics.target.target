@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target includeMode="feature" name="io.opensemantics.semiotics.target" sequenceNumber="85">
+<?pde version="3.8"?><target includeMode="feature" name="io.opensemantics.semiotics.target" sequenceNumber="90">
 <locations>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="false" type="InstallableUnit">
 <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20150821153341/repository/"/>
@@ -21,10 +21,6 @@
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="false" type="InstallableUnit">
 <unit id="org.eclipse.emf.ecp.changebroker.feature.feature.group" version="1.9.0.20160606-1526"/>
 <repository location="http://download.eclipse.org/ecp/releases/releases_target_19/"/>
-</location>
-<location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="false" type="InstallableUnit">
-<unit id="org.eclipse.e4.tools.spies.feature.feature.group" version="0.17.0.v20160520-1109"/>
-<repository location="http://download.eclipse.org/e4/snapshots/org.eclipse.e4.tools/latest"/>
 </location>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="false" type="InstallableUnit">
 <unit id="org.eclipse.equinox.sdk.feature.group" version="3.12.0.v20160606-1311"/>
@@ -74,6 +70,10 @@
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="false" type="InstallableUnit">
 <unit id="org.eclipse.emf.emfstore.client.transaction.feature.feature.group" version="1.8.0.v20160606-1028"/>
 <repository location="http://download.eclipse.org/emfstore/releases_18"/>
+</location>
+<location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="false" type="InstallableUnit">
+<unit id="org.eclipse.e4.tools.spies.feature.feature.group" version="0.17.0.v20160811-1516"/>
+<repository location="http://download.eclipse.org/e4/snapshots/org.eclipse.e4.tools/latest"/>
 </location>
 </locations>
 </target>

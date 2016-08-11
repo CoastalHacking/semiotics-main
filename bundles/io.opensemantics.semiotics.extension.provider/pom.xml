@@ -15,6 +15,22 @@
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-maven-plugin</artifactId>
       </plugin>
+      <plugin>
+         <groupId>org.eclipse.tycho</groupId>
+         <artifactId>target-platform-configuration</artifactId>
+         <configuration>
+            <dependency-resolution>
+               <extraRequirements>
+                  <!-- https://wiki.eclipse.org/Tycho/Packaging_Types#eclipse-test-plugin -->
+                  <requirement>
+                     <type>eclipse-feature</type>
+                     <id>io.opensemantics.semiotics.extension.provider.dependencies.feature</id>
+                     <versionRange>[1.0.0,1.1.0)</versionRange>
+                  </requirement>
+               </extraRequirements>
+            </dependency-resolution>
+         </configuration>
+      </plugin>
     </plugins>
   </build>
 </project>
