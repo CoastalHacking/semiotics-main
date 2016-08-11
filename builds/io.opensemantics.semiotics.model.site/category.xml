@@ -6,6 +6,10 @@
    <feature url="features/io.opensemantics.semiotics.app.dependencies.feature_1.0.0.qualifier.jar" id="io.opensemantics.semiotics.app.dependencies.feature" version="1.0.0.qualifier">
       <category name="dependencies"/>
    </feature>
+   <feature url="features/io.opensemantics.semiotics.extension.feature_1.0.0.qualifier.jar" id="io.opensemantics.semiotics.extension.feature" version="1.0.0.qualifier">
+      <category name="extension"/>
+   </feature>
    <category-def name="model" label="Semiotics Models"/>
    <category-def name="dependencies" label="Semiotics Model Dependencies"/>
+   <category-def name="extension" label="Semiotics Extension"/>
 </site>

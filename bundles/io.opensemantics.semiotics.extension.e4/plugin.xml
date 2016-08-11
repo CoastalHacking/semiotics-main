@@ -6,7 +6,7 @@
          id="io.opensemantics.semiotics.extension.e4.fragment"
          point="org.eclipse.e4.workbench.model">
       <fragment
-            apply="initial"
+            apply="always"
             uri="fragment.e4xmi">
       </fragment>
    </extension>
