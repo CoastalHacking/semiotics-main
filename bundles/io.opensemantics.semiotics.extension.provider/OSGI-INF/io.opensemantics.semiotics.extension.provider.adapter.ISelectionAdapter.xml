@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="io.opensemantics.semiotics.extension.provider.adapter.ISelectionAdapter">
+   <property name="adaptableType" value="org.eclipse.jface.viewers.ISelection"/>
    <service>
       <provide interface="io.opensemantics.semiotics.extension.api.Adapter"/>
    </service>
+   <reference bind="bindAdapterProvider" cardinality="1..1" interface="io.opensemantics.semiotics.extension.api.Adapter" name="AdapterProvider" policy="static" target="(adaptableType=org.eclipse.core.runtime.IAdaptable)" unbind="unbindAdapterProvider"/>
    <implementation class="io.opensemantics.semiotics.extension.provider.adapter.ISelectionAdapter"/>
 </scr:component>

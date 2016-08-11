@@ -24,10 +24,7 @@ import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IPartService;
-import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.texteditor.AbstractTextEditor;
 
 import io.opensemantics.semiotics.extension.api.AdapterProvider;
 
@@ -39,9 +36,9 @@ public class AddToProjectHandler {
   @Execute
   public void execute(
       @Optional @Named (IServiceConstants.ACTIVE_SELECTION) ISelection selection,
-      @Optional @Named (DynamicTypeMenuHandler.COMMAND_PARAM_TYPE) String type,
+      @Optional @Named (DynamicTextEditorMenuHandler.COMMAND_PARAM_TYPE) String type,
       @Optional IPartService iPartService,
-      @Optional AdapterProvider adapterProvider) {
+      AdapterProvider adapterProvider) {
 
     if (type == null) return;
 
@@ -54,18 +51,8 @@ public class AddToProjectHandler {
       return;
     }
 
-    if (iPartService != null) {
-      IWorkbenchPart workbenchPart = iPartService.getActivePart();
-      if (workbenchPart instanceof AbstractTextEditor) {
-        AbstractTextEditor textEditor = (AbstractTextEditor)workbenchPart;
-        IFileEditorInput iFileEditor = textEditor.getEditorInput().getAdapter(IFileEditorInput.class);
-        if (iFileEditor != null) {
-          IFile iFile = iFileEditor.getFile();
-          // Resource
-          adapterProvider.publish(iFile, clazz);
-        }
-      }
-    }
+    IFile iFile = HandlerUtil.getIFileFromIPartService(iPartService);
+    if (iFile != null) adapterProvider.publish(iFile, clazz);
 
     if (selection != null && !selection.isEmpty()) {
       adapterProvider.publish(selection, clazz);

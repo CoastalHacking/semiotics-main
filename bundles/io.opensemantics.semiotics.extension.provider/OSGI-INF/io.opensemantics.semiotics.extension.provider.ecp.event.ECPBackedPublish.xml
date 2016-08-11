@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="io.opensemantics.semiotics.extension.provider.ecp.event.ECPBackedPublish">
-   <service>
-      <provide interface="io.opensemantics.semiotics.extension.api.event.Publish"/>
-   </service>
-   <reference bind="bindEventAdmin" cardinality="1..1" interface="org.osgi.service.event.EventAdmin" name="EventAdmin" policy="static" unbind="unbindEventAdmin"/>
-   <implementation class="io.opensemantics.semiotics.extension.provider.ecp.event.ECPBackedPublish"/>
-</scr:component>

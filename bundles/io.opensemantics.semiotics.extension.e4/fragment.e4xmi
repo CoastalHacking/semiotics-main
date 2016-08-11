@@ -4,9 +4,8 @@
     <elements xsi:type="menu:MenuContribution" xmi:id="_xkZMwFA6EeaskYr25Hh60w" elementId="io.opensemantics.semiotics.extension.e4.menucontribution.0" positionInParent="after=additions" parentId="org.eclipse.ui.navigator.ProjectExplorer#PopupMenu">
       <children xsi:type="menu:Menu" xmi:id="_Scc0oFBLEeaskYr25Hh60w" elementId="io.opensemantics.semiotics.extension.e4.menu.semiotics" visible="false" label="Semiotics">
         <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_VbyFwFN7EeacorJrXcOS-w" coreExpressionId="io.opensemantics.semiotics.extension.e4.expression.iresource"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_6SOfkFA6EeaskYr25Hh60w" elementId="io.opensemantics.semiotics.extension.e4.handledmenuitem.project" label="Old Add to..." command="_ipoFUFA0EeaskYr25Hh60w"/>
         <children xsi:type="menu:Menu" xmi:id="_RoPp8FniEeaAueAnnKgWKA" elementId="io.opensemantics.semiotics.extension.e4.menu.addastype" label="Add as...">
-          <children xsi:type="menu:DynamicMenuContribution" xmi:id="_UoZBMFniEeaAueAnnKgWKA" elementId="io.opensemantics.semiotics.extension.e4.dynamicmenucontribution.1" label="Dynamic menu handler" contributionURI="bundleclass://io.opensemantics.semiotics.extension.e4/io.opensemantics.semiotics.extension.e4.handlers.DynamicTypeMenuHandler"/>
+          <children xsi:type="menu:DynamicMenuContribution" xmi:id="_UoZBMFniEeaAueAnnKgWKA" elementId="io.opensemantics.semiotics.extension.e4.dynamicmenucontribution.1" label="Dynamic menu handler" contributionURI="bundleclass://io.opensemantics.semiotics.extension.e4/io.opensemantics.semiotics.extension.e4.handlers.DynamicTextEditorMenuHandler"/>
         </children>
       </children>
     </elements>
@@ -19,9 +18,6 @@
     </elements>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_h6ZAwFA0EeaskYr25Hh60w" featurename="commands" parentElementId="org.eclipse.e4.legacy.ide.application">
-    <elements xsi:type="commands:Command" xmi:id="_ipoFUFA0EeaskYr25Hh60w" elementId="io.opensemantics.semiotics.extension.e4.command.add.assessment" commandName="Add Assessment">
-      <parameters xmi:id="_tJCrYFGxEeaskYr25Hh60w" elementId="io.opensemantics.semiotics.extension.e4.param.add.assessment.project" name="Semiotics extension project name" typeId=""/>
-    </elements>
     <elements xsi:type="commands:Command" xmi:id="_UPnxUFnhEeaAueAnnKgWKA" elementId="io.opensemantics.semiotics.extension.e4.command.add.type" commandName="Type" description="Command to pass type as parameter">
       <parameters xmi:id="_h43OMFnhEeaAueAnnKgWKA" elementId="io.opensemantics.semiotics.extension.e4.commandparameter.type" name="Semiotics extension project name"/>
     </elements>

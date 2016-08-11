@@ -33,7 +33,9 @@ import io.opensemantics.semiotics.model.assessment.Controller;
 import io.opensemantics.semiotics.model.assessment.Resource;
 import io.opensemantics.semiotics.model.assessment.Sink;
 
-@Component
+@Component(
+    property="adaptableType=org.eclipse.core.runtime.IAdaptable"
+)
 public class IAdaptableAdapter implements Adapter {
 
   @Override

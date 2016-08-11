@@ -35,9 +35,9 @@ public abstract class AbstractECPITest extends AbstractITest {
 
   @BeforeClass
   public static void beforeAbstractClass() {
-    projectManager = getService(WorkspaceITest.class, ECPProjectManager.class);
+    projectManager = getService(AbstractECPITest.class, ECPProjectManager.class);
     clearProjects(projectManager.getProjects());
-    providerRegistry = getService(PublishITest.class, ECPProviderRegistry.class);
+    providerRegistry = getService(AbstractECPITest.class, ECPProviderRegistry.class);
 
     // cheater, cheater, pumpkin eater
     // should be agnostic to the provider type

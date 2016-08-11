@@ -32,19 +32,11 @@ import org.eclipse.e4.ui.model.application.ui.menu.MMenuElement;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.jface.text.ITextSelection;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IPartService;
-import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.texteditor.AbstractTextEditor;
 
 import io.opensemantics.semiotics.extension.api.AdapterProvider;
 
-/*
- * This is a copy-paste of DynamicTypeMenuHandler. 
- * Common functionality between that and this class should be abstracted out.
- */
 public class DynamicTextEditorMenuHandler {
   
   public static final String COMMAND = "io.opensemantics.semiotics.extension.e4.command.add.type";
@@ -61,21 +53,9 @@ public class DynamicTextEditorMenuHandler {
     
     Set<Class<? extends EObject>> classes = new HashSet<>();
 
-    if (iPartService != null) {
-      IWorkbenchPart workbenchPart = iPartService.getActivePart();
-      if (workbenchPart instanceof AbstractTextEditor) {
-        AbstractTextEditor textEditor = (AbstractTextEditor)workbenchPart;
-        IFileEditorInput iFileEditor = textEditor.getEditorInput().getAdapter(IFileEditorInput.class);
-        if (iFileEditor != null) {
-          IFile iFile = iFileEditor.getFile();
-          // Resource
-          //System.out.println("File name: " + iFile.getFullPath());
-          classes.addAll(adapterProvider.getAdaptableTypes(iFile));
-        }
-      }
-    }
+    IFile iFile = HandlerUtil.getIFileFromIPartService(iPartService);
+    if (iFile != null) classes.addAll(adapterProvider.getAdaptableTypes(iFile));
 
-    // Do selection second
     if (selection != null) {
       classes.addAll(adapterProvider.getAdaptableTypes(selection));
     }

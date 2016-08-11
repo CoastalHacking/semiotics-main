@@ -4,8 +4,7 @@ Bundle-Name: Semiotics Extension Api
 Bundle-SymbolicName: io.opensemantics.semiotics.extension.api
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: io.opensemantics.semiotics.extension.api;version="1.0.0",
- io.opensemantics.semiotics.extension.api.event;version="1.0.0"
+Export-Package: io.opensemantics.semiotics.extension.api;version="1.0.0"
 Import-Package: io.opensemantics.semiotics.model.assessment,
  org.eclipse.emf.ecore,
  org.eclipse.emf.edit.command
