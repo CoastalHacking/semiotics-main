@@ -70,5 +70,4 @@ public abstract class AbstractITest {
     }
     return null;
   }
-
 }

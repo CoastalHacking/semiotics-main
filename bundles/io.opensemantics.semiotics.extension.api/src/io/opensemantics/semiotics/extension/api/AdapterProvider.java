@@ -15,7 +15,7 @@
  */
 package io.opensemantics.semiotics.extension.api;
 
-import java.util.List;
+import java.util.Collection;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -35,7 +35,7 @@ public interface AdapterProvider {
    * @param source  A domain-specific object
    * @return list of potential classes adaptable from the domain-specific object, empty list if none
    */
-  List<Class<? extends EObject>> getAdaptableTypes(Object source);
+  Collection<Class<? extends EObject>> getAdaptableTypes(Object source);
 
   /**
    * 

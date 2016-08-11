@@ -25,11 +25,9 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import org.eclipse.core.resources.IProject;
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecp.changebroker.spi.ChangeBroker;
-import org.eclipse.emf.ecp.changebroker.spi.ChangeObserver;
 import org.eclipse.emf.ecp.core.ECPProject;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -114,20 +112,6 @@ public class PublishITest extends AbstractECPITest {
     // Cleanup
     ecpProject.delete();
     changeBroker.unsubsribe(changeObserver);
-  }
-
-  private static class ApplicationChangeObserver implements ChangeObserver {
-    private final CountDownLatch latch;
-
-    public ApplicationChangeObserver(CountDownLatch latch) {
-      this.latch = latch;
-    }
-
-    @Override
-    public void handleNotification(Notification notification) {
-      this.latch.countDown();
-    }
-
   }
 
 }

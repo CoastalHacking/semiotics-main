@@ -32,7 +32,6 @@ import io.opensemantics.semiotics.model.assessment.Assessment;
 import io.opensemantics.semiotics.model.assessment.Controller;
 import io.opensemantics.semiotics.model.assessment.Resource;
 import io.opensemantics.semiotics.model.assessment.Sink;
-import io.opensemantics.semiotics.model.assessment.Snippet;
 
 @Component
 public class IAdaptableAdapter implements Adapter {
@@ -55,12 +54,6 @@ public class IAdaptableAdapter implements Adapter {
 
     return results;
   }
-
-  @Override
-  public boolean isAdaptable(Object source) {
-    return isAdaptable(source, null);
-  }
-
 
   @Override
   public Cursor update(Object source, Class<?> clazz, EObject selection) {

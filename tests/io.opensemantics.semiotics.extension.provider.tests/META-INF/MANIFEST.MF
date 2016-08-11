@@ -5,4 +5,13 @@ Bundle-SymbolicName: io.opensemantics.semiotics.extension.provider.tests
 Bundle-Version: 1.0.0.qualifier
 Fragment-Host: io.opensemantics.semiotics.extension.provider;bundle-version="[1.0.0,1.1.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: org.junit
+Import-Package: io.opensemantics.semiotics.extension.api;version="1.0.0",
+ io.opensemantics.semiotics.model.assessment,
+ org.eclipse.core.resources,
+ org.eclipse.emf.ecore,
+ org.hamcrest;version="1.1.0",
+ org.hamcrest.core;version="1.3.0",
+ org.junit,
+ org.mockito;version="1.9.5",
+ org.mockito.stubbing;version="1.9.5",
+ org.objenesis;version="1.0.0"

@@ -34,6 +34,7 @@ import org.osgi.service.event.EventConstants;
 import org.osgi.service.event.EventHandler;
 
 import io.opensemantics.semiotics.extension.api.Adapter;
+import io.opensemantics.semiotics.extension.api.AdapterException;
 import io.opensemantics.semiotics.extension.api.ModelFocal;
 import io.opensemantics.semiotics.model.assessment.Assessment;
 import io.opensemantics.semiotics.model.assessment.AssessmentFactory;
@@ -140,13 +141,15 @@ public class AdapterEventHandler implements EventHandler {
     // Create additional changes
     for (Adapter adapter: adapters.values()) {
       if (adapter.isAdaptable(source, clazz)) {
-
         final AdapterChangeCommand command = new AdapterChangeCommand(adapter, selection, source, clazz);
-        // next two lines are sensitive to ordering
-        editingDomain.getCommandStack().execute(command);
-        final Object cursor = command.getCursor();
-        if (cursor != null) {
-          modelFocus.setFocus(cursor);
+        try {
+          editingDomain.getCommandStack().execute(command);
+          final Object cursor = command.getCursor();
+          if (cursor != null) {
+            modelFocus.setFocus(cursor);
+          }
+        } catch (AdapterException ae) {
+          // TODO log
         }
       }
     }

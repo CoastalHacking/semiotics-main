@@ -27,9 +27,10 @@ public interface Adapter {
    * @param source  A domain-specific object
    * @param type  A class type
    * @param eObject  A non-null EObject
-   * @return an object to be used as a cursor, or null
+   * @return a non-null object to be used as a cursor
+   * @throws AdapterException if cannot adapt input
    */
-  Cursor update(Object source, Class<?> clazz, EObject selection);
+  Cursor update(Object source, Class<?> clazz, EObject selection) throws AdapterException;
 
   /**
    * 
@@ -43,7 +44,9 @@ public interface Adapter {
    * @param source  A domain-specific object
    * @return if the object can be adapted to some type
    */
-  boolean isAdaptable(Object source);
+  default boolean isAdaptable(Object source) {
+    return isAdaptable(source, null);
+  }
 
   /**
    * 

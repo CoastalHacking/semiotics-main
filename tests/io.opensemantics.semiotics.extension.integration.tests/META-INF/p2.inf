@@ -10,3 +10,6 @@ requires.2.name = io.opensemantics.semiotics.extension.api.event.Publish
 
 requires.3.namespace = osgi.service
 requires.3.name = io.opensemantics.semiotics.extension.api.ModelFocal
+
+requires.4.namespace = osgi.service
+requires.4.name = io.opensemantics.semiotics.extension.api.AdapterProvider

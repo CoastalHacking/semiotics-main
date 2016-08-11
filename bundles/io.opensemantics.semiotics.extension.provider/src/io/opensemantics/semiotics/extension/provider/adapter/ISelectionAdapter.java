@@ -47,12 +47,6 @@ public class ISelectionAdapter implements Adapter {
   }
 
   @Override
-  public boolean isAdaptable(Object source) {
-    return isAdaptable(source, null);
-  }
-
-
-  @Override
   public Cursor update(Object source, Class<?> clazz, EObject selection) {
     if (!isAdaptable(source, clazz)) return null;
 
@@ -93,6 +87,8 @@ public class ISelectionAdapter implements Adapter {
     final ISelection iSelection = (ISelection) source;
 
     boolean isTextSelection = (iSelection instanceof ITextSelection);
+    if (clazz == null) return isTextSelection;
+
     if (clazz.equals(Snippet.class)) return isTextSelection;
 
     return false;

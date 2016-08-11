@@ -44,6 +44,7 @@ public class AdapterChangeCommand extends ChangeCommand implements Cursor {
   @Override
   protected void doExecute() {
     this.cursor = adapter.update(source, clazz, selection).getCursor();
+    assert this.cursor != null;
   }
 
 }
