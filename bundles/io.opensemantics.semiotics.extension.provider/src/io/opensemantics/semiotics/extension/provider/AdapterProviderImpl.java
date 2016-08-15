@@ -81,6 +81,12 @@ public class AdapterProviderImpl implements AdapterProvider {
     map.put(SOURCE, source);
     map.put(CLASS, clazz);
     eventAdmin.postEvent(new Event(TOPIC_ADAPT, map));
+    for (Adapter adapter: adapters.values()) {
+      for (Object obj : adapter.republish(source)) {
+      // Recursive
+      this.publish(obj, clazz);
+      }
+    }
   }
 
   /* (non-Javadoc)
@@ -91,10 +97,14 @@ public class AdapterProviderImpl implements AdapterProvider {
     final Set<Class<? extends EObject>> results = new LinkedHashSet<>();
     for (Adapter adapter: adapters.values()) {
       results.addAll(adapter.getAdaptableTypes(source));
+      for (Object obj : adapter.republish(source)) {
+        // Recursive
+        results.addAll(this.getAdaptableTypes(obj));
+      }
     }
     return new ArrayList<>(results);
   }
-
+  
   /* (non-Javadoc)
    * @see io.opensemantics.semiotics.extension.api.AdapterProvider#isAdaptable(java.lang.Object)
    */
@@ -102,6 +112,11 @@ public class AdapterProviderImpl implements AdapterProvider {
   public boolean isAdaptable(Object source) {
     for (Adapter adapter: adapters.values()) {
       if (adapter.isAdaptable(source)) return true;
+      for (Object obj : adapter.republish(source)) {
+        // Recursive
+        if (this.isAdaptable(obj)) return true;
+      }
+
     }
     return false;
   }

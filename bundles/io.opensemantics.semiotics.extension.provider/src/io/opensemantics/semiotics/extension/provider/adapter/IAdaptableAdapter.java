@@ -16,12 +16,18 @@
 package io.opensemantics.semiotics.extension.provider.adapter;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jdt.core.IJavaElement;
+import org.eclipse.jdt.core.IMember;
+import org.eclipse.jdt.core.IType;
+import org.eclipse.jdt.core.ITypeRoot;
 import org.osgi.service.component.annotations.Component;
 
 import io.opensemantics.semiotics.extension.api.Adapter;
@@ -48,7 +54,11 @@ public class IAdaptableAdapter implements Adapter {
       results.add(Application.class);
     }
 
-    if (iAdaptable.getAdapter(IFile.class) != null) {
+    IFile iFile = iAdaptable.getAdapter(IFile.class);
+    IJavaElement iJavaElement = iAdaptable.getAdapter(IJavaElement.class);
+
+    // IFile || IJavaElement
+    if (iFile != null || iJavaElement != null) {
       results.add(Resource.class);
       results.add(Controller.class);
       results.add(Sink.class);
@@ -60,39 +70,107 @@ public class IAdaptableAdapter implements Adapter {
   @Override
   public Cursor update(Object source, Class<?> clazz, EObject selection) {
     if (!isAdaptable(source, clazz)) return null;
-
+    IAdaptable iAdaptable = (IAdaptable)source;
+    
     EObject result = null;
 
-    if (clazz.equals(Application.class)) {
-      // Application
-      IProject iProject = (IProject) source;
-      final Assessment assessment = AdapterUtil.getSelection(selection, Assessment.class);
-      result = AdapterUtil.getOrCreateApplication(iProject.getName(), assessment);
-    } else if (clazz.equals(Resource.class)) {
-      // Resource
-      IFile iFile = (IFile) source;
-      IProject iProject = iFile.getProject();
-      final Assessment assessment = AdapterUtil.getSelection(selection, Assessment.class);
-      Application application = AdapterUtil.getOrCreateApplication(iProject.getName(), assessment);
-      result = AdapterUtil.getOrCreateResource(iFile.getName(), application);
+    final UpdateHelper helper = new UpdateHelper(iAdaptable);
+    final Assessment assessment = AdapterUtil.getSelection(selection, Assessment.class);
+    final Application application = AdapterUtil.getOrCreateApplication(helper.getApplicationName(), assessment);
 
+    if (clazz.equals(Application.class)) {
+      result = application;
+    } else if (clazz.equals(Resource.class)) {
+      result = AdapterUtil.getOrCreateResource(helper.getResourceName(), application);
     } else if (clazz.equals(Controller.class)) {
-      // Controller
-      IFile iFile = (IFile) source;
-      IProject iProject = iFile.getProject();
-      final Assessment assessment = AdapterUtil.getSelection(selection, Assessment.class);
-      Application application = AdapterUtil.getOrCreateApplication(iProject.getName(), assessment);
-      result = AdapterUtil.getOrCreateController(iFile.getName(), application);
+      result = AdapterUtil.getOrCreateController(helper.getChildName(), application);
     } else if (clazz.equals(Sink.class)) {
-      // Sink
-      IFile iFile = (IFile) source;
-      IProject iProject = iFile.getProject();
-      final Assessment assessment = AdapterUtil.getSelection(selection, Assessment.class);
-      Application application = AdapterUtil.getOrCreateApplication(iProject.getName(), assessment);
-      result = AdapterUtil.getOrCreateSink(iFile.getName(), application);
+      result = AdapterUtil.getOrCreateSink(helper.getChildName(), application);
     }
 
     return new EObjectCursor(result);
+  }
+  
+  private static class UpdateHelper {
+
+    private IFile iFile;
+    private IJavaElement iJavaElement;
+    private IProject iProject;
+    private IResource iResource;
+
+    public void setIFile(IAdaptable adaptable) {
+      iFile = adaptable.getAdapter(IFile.class);
+    }
+
+    public void setIJavaElement(IAdaptable adaptable) {
+      iJavaElement = adaptable.getAdapter(IJavaElement.class);
+      if (iJavaElement != null) {
+        iProject = iJavaElement.getJavaProject().getProject();
+        iResource = iJavaElement.getResource();
+      }
+    }
+
+    public void setIProject(IAdaptable adaptable) {
+      this.iProject = adaptable.getAdapter(IProject.class);
+    }
+
+    public void setIResource(IAdaptable adaptable) {
+      this.iResource = adaptable.getAdapter(IResource.class);
+    }
+
+    private String getIResourceName(String prior) {
+      return (iResource != null) ? iResource.getProjectRelativePath().toString() : prior;
+    }
+    
+    private String getIFileName(String prior) {
+      return (iFile != null) ? iFile.getName() : prior;
+    }
+    
+    public UpdateHelper(IAdaptable source) {
+      super();
+      // Least to more specific
+      setIProject(source);
+      setIResource(source);
+      setIFile(source);
+      setIJavaElement(source); 
+    }
+
+    public String getResourceName() {
+      return getIFileName(getIResourceName(""));
+    }
+
+    public String getApplicationName() {
+      return (iProject != null) ? iProject.getName() : "";
+    }
+    
+    public String getChildName() {
+      String results = getIFileName(getIResourceName(""));
+
+      if (iJavaElement != null) {
+        results = iJavaElement.getElementName();
+        // e.g. class
+        IType iType = iJavaElement.getAdapter(IType.class);
+        // e.g. some random selection within a class
+        ITypeRoot iTypeRoot = iJavaElement.getAdapter(ITypeRoot.class);
+        // e.g. method, field
+        IMember iMember = iJavaElement.getAdapter(IMember.class);
+        if (iType != null) {
+          results = iType.getFullyQualifiedName();
+        } else if (iTypeRoot != null) {
+          IType otherIType = iTypeRoot.findPrimaryType();
+          if (otherIType != null) results = otherIType.getFullyQualifiedName();
+        } else if (iMember != null) {
+          results = iMember.getElementName();
+          IType memberIType = iMember.getDeclaringType();
+          if (memberIType != null) {
+            results = String.format("%s.%s", iMember.getDeclaringType().getFullyQualifiedName(), results);
+          }
+        }
+      }
+      return results;
+    }
+    
+    
   }
 
   @Override
@@ -102,16 +180,31 @@ public class IAdaptableAdapter implements Adapter {
     final IAdaptable iAdaptable = (IAdaptable) source;
     boolean isIProject = (iAdaptable.getAdapter(IProject.class) != null);
     boolean isIFile = (iAdaptable.getAdapter(IFile.class) != null);
+    boolean isJavaElement = (iAdaptable.getAdapter(IJavaElement.class) != null);
 
-    if (clazz == null) return (isIProject || isIFile);
+    if (clazz == null) return (isIProject || isIFile || isJavaElement);
 
+    // IProject
     if (clazz.equals(Application.class)) return isIProject;
-
-    if (clazz.equals(Resource.class)) return isIFile;
-    if (clazz.equals(Controller.class)) return isIFile;
-    if (clazz.equals(Sink.class)) return isIFile;
+    
+    // IFile & IJavaElement
+    final boolean isIFileOrIJavaElement = isIFile || isJavaElement;
+    if (clazz.equals(Resource.class)) return isIFileOrIJavaElement;
+    if (clazz.equals(Controller.class)) return isIFileOrIJavaElement;
+    if (clazz.equals(Sink.class)) return isIFileOrIJavaElement;
 
     return false;
+  }
+
+  /*
+   * Nothing to republish
+   * 
+   * (non-Javadoc)
+   * @see io.opensemantics.semiotics.extension.api.Adapter#republish(java.lang.Object)
+   */
+  @Override
+  public Collection<Object> republish(Object source) {
+    return new ArrayList<>();
   }
 
 }

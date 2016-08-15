@@ -16,21 +16,20 @@
 package io.opensemantics.semiotics.extension.provider.adapter;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.text.ITextSelection;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.Reference;
 
 import io.opensemantics.semiotics.extension.api.Adapter;
 import io.opensemantics.semiotics.extension.api.Cursor;
 import io.opensemantics.semiotics.extension.provider.EObjectCursor;
-import io.opensemantics.semiotics.model.assessment.Application;
 import io.opensemantics.semiotics.model.assessment.Node;
 import io.opensemantics.semiotics.model.assessment.Snippet;
 
@@ -39,32 +38,16 @@ import io.opensemantics.semiotics.model.assessment.Snippet;
 )
 public class ISelectionAdapter implements Adapter {
 
-
-  private Adapter iAdaptableAdapter;
-  
-  @Reference(
-      target="(adaptableType=org.eclipse.core.runtime.IAdaptable)"
-  )
-  void bindAdapterProvider(Adapter adapter) {
-    this.iAdaptableAdapter = adapter;
-  }
-  void unbindAdapterProvider(Adapter adapter) {
-    this.iAdaptableAdapter = null;
-  }
-
   @Override
   public List<Class<? extends EObject>> getAdaptableTypes(Object source) {
     List<Class<? extends EObject>> results = new ArrayList<>();
+
     if (!(source instanceof ISelection)) return results;
 
     final ISelection iSelection = (ISelection) source;
 
     if (iSelection instanceof ITextSelection) {
       results.add(Snippet.class);
-    }
-    if (iSelection instanceof IStructuredSelection) {
-      // Defers to IAdaptableAdapter
-      results.add(Application.class);
     }
 
     return results;
@@ -98,34 +81,32 @@ public class ISelectionAdapter implements Adapter {
           columnStart,
           columnEnd,
           node);
-    } else if (clazz.equals(Application.class)) {
-      IStructuredSelection iStructSelection = (IStructuredSelection) iSelection;
-      for (final @SuppressWarnings("rawtypes") Iterator it = iStructSelection.iterator(); it.hasNext();) {
-        Object object = it.next();
-        if (object instanceof IProject) {
-          return iAdaptableAdapter.update(object, Application.class, selection);
-        }
-      }
     }
 
     return new EObjectCursor(result);
   }
 
+  @Override
+  public Collection<Object> republish(Object source) {
+    Collection<Object> results = new HashSet<>();
+    if (source instanceof IStructuredSelection) {
+      IStructuredSelection iStructuredSelection = (IStructuredSelection) source;
+      for (@SuppressWarnings("rawtypes") final Iterator it = iStructuredSelection.iterator(); it.hasNext();) {
+        results.add(it.next());
+      }
+    }
+    return results;
+  }
 
   @Override
   public boolean isAdaptable(Object source, Class<?> clazz) {
     if (!(source instanceof ISelection)) return false;
     final ISelection iSelection = (ISelection) source;
 
-    boolean isTextSelection = (iSelection instanceof ITextSelection);
-    boolean isStructuredSelection = (iSelection instanceof IStructuredSelection);
-
-    if (clazz == null) return (isTextSelection || isStructuredSelection);
-
-    if (clazz.equals(Snippet.class)) return isTextSelection;
-    
-    // Defers to IAdaptableAdapter
-    if (clazz.equals(Application.class)) return isStructuredSelection;
+    if (iSelection instanceof ITextSelection) {
+      if (clazz == null) return true;
+      if (clazz.equals(Snippet.class)) return true;
+    }
 
     return false;
   }

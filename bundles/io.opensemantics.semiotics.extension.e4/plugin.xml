@@ -16,7 +16,11 @@
             id="io.opensemantics.semiotics.extension.e4.expression.iresource">
          <with variable="selection">
             <iterate ifEmpty="false">
+              <or>
                <instanceof value="org.eclipse.core.resources.IResource" />
+               <instanceof value="org.eclipse.jface.viewers.ISelection" />
+               <instanceof value="org.eclipse.jdt.core.IJavaElement" />
+              </or>
             </iterate>
          </with>
       </definition>

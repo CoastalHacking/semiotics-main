@@ -56,4 +56,7 @@ public interface Adapter {
    */
   boolean isAdaptable(Object source, Class<?> clazz);
 
+  
+  Collection<Object> republish(Object source);
+
 }
