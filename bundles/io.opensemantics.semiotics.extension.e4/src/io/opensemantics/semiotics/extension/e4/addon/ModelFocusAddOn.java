@@ -25,6 +25,7 @@ import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.workbench.UIEvents;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.e4.ui.workbench.modeling.ISelectionListener;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeSelection;
 import org.eclipse.jface.viewers.TreePath;
@@ -54,6 +55,14 @@ public class ModelFocusAddOn {
         selectionListener = new ISelectionListener() {
           @Override
           public void selectionChanged(MPart part, Object selection) {
+            // Unset quickly
+            if (selection instanceof ISelection) {
+              if (((ISelection)selection).isEmpty()) {
+                modelFocusService.setFocus(null);
+                modelFocusService.setFocuses(new Object[]{});
+                return;
+              }
+            }
             if (selection instanceof ITreeSelection) {
               ITreeSelection tree = (ITreeSelection) selection;
               TreePath[] paths = tree.getPaths();
